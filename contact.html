@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0D0C0B">
+<link rel="icon" type="image/png" href="assets/BodegaBar_Logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bodega Bar ATL">
+<meta property="og:title" content="Contact — Bodega Bar ATL | Ring the Bell">
+<meta property="og:description" content="General, press, private events, artist submissions. 1085 Katherwood Dr SW, Sylvan Hills, Atlanta.">
+<meta property="og:url" content="https://www.bodegabaratl.com/contact">
+<meta property="og:image" content="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/80a5b2a5-3289-49f8-ade4-91d2d08830ef/baconeggchz?format=1500w">
+<meta name="twitter:card" content="summary_large_image">
+<title>Contact — Bodega Bar ATL | Ring the Bell</title>
+<meta name="description" content="Get in touch with Bodega Bar ATL — general questions, press, private events, artist submissions. 1085 Katherwood Dr SW, Sylvan Hills, Atlanta. Ring the bell.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&family=Archivo:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FFF4E2;
+  --paper:#FBF3E4;
+  --brick:#E94B3C;
+  --red-field:#D8402F;
+  --orange:#F58524;
+  --gold:#FFB73D;
+  --ink:#1A1A1A;
+  --night:#0D0C0B;
+  --ease-enter:cubic-bezier(.22,1,.36,1);
+  --ease-cinematic:cubic-bezier(.83,0,.17,1);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+@view-transition{navigation:auto}
+body{
+  background:var(--cream);color:var(--ink);
+  font-family:'Archivo',sans-serif;
+  font-size:clamp(1rem,.95rem + .3vw,1.125rem);line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+::selection{background:var(--gold);color:var(--ink)}
+img{max-width:100%;display:block}
+a{color:inherit}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.06;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ===== NAV ===== */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px clamp(20px,4vw,64px);
+  transition:background .4s var(--ease-enter),padding .4s;
+}
+nav.scrolled{background:var(--ink);padding:8px clamp(20px,4vw,64px)}
+.nav-logo img{height:92px;width:auto;transition:height .4s}
+nav.scrolled .nav-logo img{height:58px}
+.nav-links{display:flex;align-items:center;gap:clamp(14px,2.6vw,36px);list-style:none}
+.nav-links a{
+  text-decoration:none;font-weight:600;font-size:.88rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--cream);position:relative;
+}
+.nav-links a:not(.cta)::after{
+  content:"";position:absolute;left:0;bottom:-5px;height:2px;width:0;
+  background:var(--gold);transition:width .3s var(--ease-enter);
+}
+.nav-links a:not(.cta):hover::after{width:100%}
+.cta{background:var(--gold);color:var(--ink)!important;padding:11px 22px;font-weight:700;transition:transform .25s var(--ease-spring)}
+.cta:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--cream)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;font-family:'IBM Plex Mono';font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream)}
+.mobile-nav{
+  position:fixed;inset:0;background:var(--night);z-index:200;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:30px;opacity:0;pointer-events:none;transition:opacity .4s var(--ease-enter);
+}
+.mobile-nav.open{opacity:1;pointer-events:auto}
+.mobile-nav a{font-family:'Fraunces';font-size:2.2rem;font-style:italic;color:var(--gold);text-decoration:none}
+.mobile-nav .close{position:absolute;top:24px;right:24px;background:none;border:none;color:var(--cream);font-family:'IBM Plex Mono';font-size:.9rem;letter-spacing:.14em;cursor:pointer}
+
+/* ===== HERO ===== */
+.chero{
+  min-height:62svh;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:150px clamp(20px,4vw,64px) clamp(40px,6vh,72px);
+  color:var(--cream);
+  background:linear-gradient(180deg,#0D0C0B 0%,#0D0C0B 12%,#571E14 42%,var(--red-field) 70%);
+}
+.chero .kicker{
+  font-family:'IBM Plex Mono';font-size:clamp(.78rem,.75rem+.2vw,.9rem);
+  letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:20px;
+}
+.chero h1{
+  font-family:'Fraunces';font-size:clamp(3rem,9.5vw,9.5rem);line-height:.94;
+  letter-spacing:-.02em;font-weight:500;text-transform:uppercase;
+  font-variation-settings:'SOFT' 50,'WONK' 1,'opsz' 144;
+}
+.chero h1 em{font-style:italic;color:var(--gold);text-transform:none;font-weight:440}
+.chero .ghostword{
+  position:absolute;top:8%;left:0;white-space:nowrap;
+  font-family:'Archivo';font-weight:700;text-transform:uppercase;
+  font-size:clamp(11rem,26vw,26rem);line-height:1;letter-spacing:.06em;
+  color:transparent;-webkit-text-stroke:2px rgba(255,244,226,.14);
+  user-select:none;animation:ghostcrawl 130s linear infinite;pointer-events:none;
+}
+@keyframes ghostcrawl{from{transform:translateX(2%)}to{transform:translateX(-52%)}}
+
+/* ===== BUZZER + TICKET ===== */
+section{padding:clamp(72px,9vw,130px) clamp(20px,4vw,64px)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease-enter),transform .7s var(--ease-enter)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.12s}
+.meta-row{
+  display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;
+  font-family:'IBM Plex Mono';font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;
+  margin-bottom:14px;color:var(--brick);
+}
+h2.mega{
+  font-family:'Fraunces';text-transform:uppercase;
+  font-size:clamp(2.4rem,7vw,6.5rem);line-height:.95;letter-spacing:-.015em;
+  font-variation-settings:'SOFT' 0,'WONK' 1,'wght' 240;
+  transition:font-variation-settings 1.4s var(--ease-enter);
+  margin-bottom:clamp(30px,4vw,56px);
+}
+h2.mega.in{font-variation-settings:'SOFT' 55,'WONK' 1,'wght' 540}
+h2.mega em{font-style:italic;color:var(--brick);text-transform:none;font-weight:440}
+
+.buzz-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,5vw,90px);align-items:start}
+
+/* the buzzer panel */
+.panel{
+  background:var(--ink);border:3px solid #2e2b27;padding:clamp(22px,3vw,40px);
+  box-shadow:14px 14px 0 var(--brick);
+  position:sticky;top:110px;
+}
+.panel .p-head{
+  font-family:'IBM Plex Mono';color:#8a8378;font-size:.74rem;letter-spacing:.2em;
+  text-transform:uppercase;text-align:center;border-bottom:1px solid #2e2b27;
+  padding-bottom:16px;margin-bottom:10px;line-height:1.9;
+}
+.panel .p-head b{color:var(--cream);display:block;font-size:.9rem;letter-spacing:.26em}
+.buzzer{
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;
+  width:100%;background:none;border:none;border-bottom:1px solid #2e2b27;
+  padding:18px 6px;cursor:pointer;text-align:left;
+  transition:background .25s;
+}
+.buzzer:hover{background:#211f1c}
+.buzzer .btn-led{
+  width:34px;height:34px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#5a544b,#26231f 70%);
+  border:2px solid #3a362f;position:relative;flex-shrink:0;
+  transition:box-shadow .3s,background .3s;
+}
+.buzzer .lab{font-family:'IBM Plex Mono';color:var(--cream);font-size:.92rem;letter-spacing:.14em;text-transform:uppercase}
+.buzzer .lab small{display:block;color:#8a8378;font-size:.7rem;letter-spacing:.12em;margin-top:4px;text-transform:none}
+.buzzer .unit{font-family:'Fraunces';font-style:italic;color:#8a8378;font-size:1.1rem}
+.buzzer.active .btn-led{
+  background:radial-gradient(circle at 35% 35%,#FFE2A0,var(--gold) 70%);
+  box-shadow:0 0 18px rgba(255,183,61,.8),0 0 44px rgba(245,133,36,.4);
+  border-color:var(--gold);
+}
+.buzzer.active .lab{color:var(--gold)}
+.buzzer.active .unit{color:var(--gold)}
+.buzzer.buzzing{animation:buzz .3s linear}
+@keyframes buzz{
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-3px)}40%{transform:translateX(3px)}
+  60%{transform:translateX(-2px)}80%{transform:translateX(2px)}
+}
+.panel .p-foot{
+  font-family:'IBM Plex Mono';color:#6b645a;font-size:.68rem;letter-spacing:.16em;
+  text-transform:uppercase;text-align:center;padding-top:16px;
+}
+
+/* the order ticket */
+.ticket-zone{min-height:540px;position:relative}
+.ticket-idle{
+  font-family:'IBM Plex Mono';color:#8a8378;font-size:.85rem;letter-spacing:.18em;
+  text-transform:uppercase;border:2px dashed rgba(26,26,26,.25);
+  padding:clamp(40px,6vw,80px) clamp(24px,4vw,48px);text-align:center;line-height:2.2;
+}
+.ticket{
+  background:#fffdf7;max-width:520px;
+  padding:30px 30px 24px;font-family:'IBM Plex Mono';font-size:.85rem;
+  box-shadow:0 30px 60px -20px rgba(26,26,26,.45);
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 8px),96% 100%,92% calc(100% - 8px),88% 100%,84% calc(100% - 8px),80% 100%,76% calc(100% - 8px),72% 100%,68% calc(100% - 8px),64% 100%,60% calc(100% - 8px),56% 100%,52% calc(100% - 8px),48% 100%,44% calc(100% - 8px),40% 100%,36% calc(100% - 8px),32% 100%,28% calc(100% - 8px),24% 100%,20% calc(100% - 8px),16% 100%,12% calc(100% - 8px),8% 100%,4% calc(100% - 8px),0 100%);
+  transform:rotate(.8deg);
+  display:none;position:relative;
+  animation:printout .7s var(--ease-cinematic);
+  transform-origin:top center;
+}
+.ticket.show{display:block}
+@keyframes printout{
+  from{clip-path:inset(0 0 100% 0);transform:rotate(.8deg) translateY(-14px)}
+  to{clip-path:inset(0 0 0 0);transform:rotate(.8deg) translateY(0)}
+}
+.ticket .t-head{text-align:center;border-bottom:1px dashed #b9b1a3;padding-bottom:12px;margin-bottom:14px}
+.ticket .t-head .t-title{font-weight:600;letter-spacing:.22em;font-size:1rem}
+.ticket .t-head .t-sub{font-size:.7rem;color:#7d766b;margin-top:4px;letter-spacing:.1em}
+.ticket .t-topic{
+  display:flex;justify-content:space-between;font-size:.78rem;color:#4a4640;
+  border-bottom:1px dashed #b9b1a3;padding-bottom:10px;margin-bottom:6px;
+}
+.ticket .t-topic b{color:var(--brick);letter-spacing:.1em}
+.ticket label{font-size:.7rem;letter-spacing:.14em;display:block;margin:13px 0 5px;color:#4a4640;text-transform:uppercase}
+.ticket input,.ticket textarea,.ticket select{
+  width:100%;border:1px dashed #b9b1a3;background:#fffdf7;padding:10px 12px;
+  font-family:'IBM Plex Mono';font-size:.88rem;outline:none;color:var(--ink);
+  resize:vertical;
+}
+.ticket input:focus,.ticket textarea:focus,.ticket select:focus{border-color:var(--brick);border-style:solid;box-shadow:0 0 0 3px rgba(255,183,61,.4)}
+.ticket button{
+  width:100%;margin-top:18px;padding:14px;border:none;cursor:pointer;
+  background:var(--ink);color:var(--cream);
+  font-family:'IBM Plex Mono';font-weight:600;letter-spacing:.18em;font-size:.85rem;
+  transition:transform .25s var(--ease-spring),box-shadow .25s;
+}
+.ticket button:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--gold)}
+.ticket .t-foot{text-align:center;font-size:.66rem;letter-spacing:.16em;color:#7d766b;margin-top:12px;text-transform:uppercase}
+/* the stamp */
+.stamp{
+  position:absolute;top:34%;left:50%;z-index:5;
+  border:4px solid var(--brick);color:var(--brick);
+  font-family:'IBM Plex Mono';font-weight:600;letter-spacing:.2em;font-size:1rem;
+  padding:14px 22px;text-transform:uppercase;text-align:center;line-height:1.7;
+  background:rgba(255,253,247,.82);
+  transform:translate(-50%,-50%) rotate(-8deg) scale(3);opacity:0;pointer-events:none;
+}
+.stamp.hit{animation:stampin .45s var(--ease-cinematic) forwards}
+@keyframes stampin{
+  from{transform:translate(-50%,-50%) rotate(-8deg) scale(3);opacity:0}
+  60%{transform:translate(-50%,-50%) rotate(-8deg) scale(.96);opacity:1}
+  to{transform:translate(-50%,-50%) rotate(-8deg) scale(1);opacity:1}
+}
+.ticket.done input,.ticket.done textarea,.ticket.done button,.ticket.done select{opacity:.35;pointer-events:none}
+
+/* ===== THE CORNER (night + cinematic map) ===== */
+.corner{background:var(--night);color:var(--cream);position:relative;overflow:hidden}
+.corner .meta-row{color:var(--gold)}
+.corner h2.mega em{color:var(--gold);text-shadow:0 0 24px rgba(255,183,61,.4)}
+.mapstage{
+  position:relative;height:clamp(560px,74vh,820px);
+  border:3px solid #2e2b27;overflow:hidden;
+}
+/* storefront awning canopy */
+.canopy{
+  position:absolute;top:0;left:0;right:0;height:16px;z-index:4;
+  background:repeating-linear-gradient(90deg,var(--red-field) 0 34px,var(--cream) 34px 68px);
+  box-shadow:0 4px 14px rgba(0,0,0,.45);
+}
+.canopy::after{
+  content:"";position:absolute;left:0;right:0;top:100%;height:8px;
+  background:repeating-linear-gradient(90deg,transparent 0 8px,rgba(0,0,0,.25) 8px 10px);
+}
+.mapstage iframe{
+  position:absolute;inset:0;width:100%;height:100%;border:0;
+  filter:grayscale(1) sepia(.42) contrast(1.04) brightness(.78) saturate(1.15);
+  pointer-events:none;
+}
+/* vignette so the map sits in the night */
+.map-shade{
+  position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 42% 50%,transparent 30%,rgba(13,12,11,.55) 100%),
+    linear-gradient(180deg,rgba(13,12,11,.5) 0%,transparent 18%,transparent 78%,rgba(13,12,11,.6) 100%);
+}
+/* the pulsing pin — dead center where the embed centers the address */
+.pin{
+  position:absolute;left:50%;top:50%;z-index:3;transform:translate(-50%,-50%);
+  pointer-events:none;display:flex;flex-direction:column;align-items:center;gap:12px;
+}
+.pin .dot{
+  width:18px;height:18px;border-radius:50%;background:var(--gold);
+  border:3px solid var(--ink);position:relative;
+  box-shadow:0 0 20px rgba(255,183,61,.8);
+}
+.pin .dot::before,.pin .dot::after{
+  content:"";position:absolute;inset:-3px;border-radius:50%;
+  border:2px solid var(--gold);opacity:0;
+  animation:pulse 2.6s ease-out infinite;
+}
+.pin .dot::after{animation-delay:1.3s}
+@keyframes pulse{
+  0%{transform:scale(1);opacity:.9}
+  100%{transform:scale(4.2);opacity:0}
+}
+.pin .pin-tag{
+  background:var(--ink);color:var(--gold);font-family:'IBM Plex Mono';font-weight:600;
+  font-size:.72rem;letter-spacing:.16em;padding:9px 14px;white-space:nowrap;
+  border:1px solid #3a362f;transform:rotate(-2deg);
+}
+/* the directions card */
+.dircard{
+  position:absolute;right:clamp(18px,4vw,64px);top:50%;transform:translateY(-50%) rotate(1.4deg);
+  z-index:5;width:clamp(300px,30vw,400px);
+  background:#fffdf7;color:var(--ink);
+  padding:34px 28px 26px;
+  box-shadow:16px 16px 0 rgba(26,26,26,.85);
+}
+.dircard::before{ /* gold tape */
+  content:"";position:absolute;top:-12px;left:50%;width:96px;height:26px;margin-left:-48px;
+  background:rgba(255,183,61,.85);transform:rotate(-3deg);
+}
+.dircard h3{
+  font-family:'Fraunces';font-style:italic;font-size:clamp(2rem,1.6rem+1.6vw,3rem);
+  font-weight:520;line-height:1;margin-bottom:18px;
+}
+.dircard .drow{
+  display:grid;grid-template-columns:84px 1fr;gap:14px;align-items:baseline;
+  border-top:1px dashed #cfc4b2;padding:11px 0;
+  font-family:'IBM Plex Mono';font-size:.8rem;
+}
+.dircard .drow .k{letter-spacing:.16em;color:#9a917f;font-size:.68rem;text-transform:uppercase}
+.dircard .drow .v{color:var(--ink);line-height:1.5}
+.dircard .drow .v a{text-decoration:none;border-bottom:1px solid #cfc4b2;transition:border-color .2s,color .2s}
+.dircard .drow .v a:hover{color:var(--brick);border-color:var(--brick)}
+.dircard .drow .v .soon{font-family:'Fraunces';font-style:italic;font-size:1rem}
+.dircard .dbtn{
+  display:block;text-align:center;margin-top:18px;padding:15px;
+  background:var(--gold);color:var(--ink);text-decoration:none;
+  font-family:'IBM Plex Mono';font-weight:600;letter-spacing:.16em;font-size:.82rem;
+  transition:transform .25s var(--ease-spring),box-shadow .25s;
+}
+.dircard .dbtn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+.dircard .dfoot{
+  text-align:center;font-family:'IBM Plex Mono';font-size:.64rem;letter-spacing:.18em;
+  color:#9a917f;margin-top:12px;text-transform:uppercase;
+}
+
+/* ===== CTA BAND (gold) ===== */
+.band{
+  background:var(--gold);padding:clamp(48px,7vw,90px) clamp(20px,4vw,64px);
+  display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;
+}
+.band h3{
+  font-family:'Fraunces';font-size:clamp(1.8rem,4.5vw,3.6rem);line-height:1;font-weight:500;
+  text-transform:uppercase;letter-spacing:-.01em;font-variation-settings:'SOFT' 50,'WONK' 1;
+}
+.band h3 em{font-style:italic;color:var(--red-field);text-transform:none}
+.btn{
+  text-decoration:none;font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;
+  padding:17px 30px;display:inline-block;transition:transform .25s var(--ease-spring),box-shadow .25s;
+}
+.btn-ink{background:var(--ink);color:var(--cream)}
+.btn-ink:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--red-field)}
+
+/* ===== FOOTER ===== */
+footer{background:var(--ink);color:var(--cream);padding:clamp(48px,7vw,90px) clamp(20px,4vw,64px) 36px}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:clamp(28px,4vw,64px);margin-bottom:48px}
+.foot-grid h4{font-family:'IBM Plex Mono';font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.foot-grid a{color:#cfc6b8;text-decoration:none;display:block;padding:4px 0;transition:color .2s}
+.foot-grid a:hover{color:var(--gold)}
+.foot-logo{font-family:'Fraunces';font-size:clamp(1.5rem,1.2rem+1.5vw,2.4rem);font-style:italic;font-weight:520;line-height:1.15;max-width:16ch}
+.foot-logo .sub{font-family:'IBM Plex Mono';font-style:normal;font-size:.74rem;letter-spacing:.2em;color:#8a8378;display:block;margin-top:14px;text-transform:uppercase}
+.foot-bottom{
+  border-top:1px solid #2c2925;padding-top:22px;display:flex;justify-content:space-between;
+  gap:18px;flex-wrap:wrap;font-family:'IBM Plex Mono';font-size:.72rem;letter-spacing:.12em;color:#8a8378;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .buzz-grid{grid-template-columns:1fr}
+  .panel{position:static}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .mapstage{height:auto;border:none;overflow:visible}
+  .mapstage iframe{position:relative;height:400px;border:3px solid #2e2b27;pointer-events:auto}
+  .map-shade{display:none}
+  .canopy{top:0}
+  .pin{top:216px}
+  .dircard{
+    position:relative;right:auto;top:auto;transform:rotate(0);
+    width:auto;margin:26px 0 0;
+  }
+}
+@media(max-width:640px){
+  .nav-links{display:none}
+  .hamburger{display:block}
+  .foot-grid{grid-template-columns:1fr}
+  .ticket{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+  .chero .ghostword{animation:none}
+  h2.mega{font-variation-settings:'SOFT' 55,'WONK' 1,'wght' 540}
+  .ticket{animation:none}
+}
+</style>
+<link rel="stylesheet" href="fx.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="index.html" aria-label="Bodega Bar ATL home">
+    <img src="assets/BodegaBar_Logo.png" alt="Bodega Bar">
+  </a>
+  <ul class="nav-links">
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="index.html#on-the-wall">On the Wall</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a class="cta" href="index.html#list">Get on the List</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">Menu ＋</button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <button class="close" id="navClose">Close ✕</button>
+  <a href="index.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="about.html">About</a>
+  <a href="index.html#on-the-wall">On the Wall</a>
+  <a href="contact.html">Contact</a>
+  <a href="index.html#list">Get on the List</a>
+</div>
+
+<!-- HERO -->
+<header class="chero">
+  <span class="ghostword" aria-hidden="true">BZZZT&nbsp;★&nbsp;BZZZT&nbsp;★&nbsp;BZZZT&nbsp;★&nbsp;BZZZT&nbsp;★&nbsp;</span>
+  <div>
+    <span class="kicker">Contact — Bodega Bar ATL</span>
+    <h1>Ring <em>the bell.</em></h1>
+  </div>
+</header>
+
+<!-- BUZZER + TICKET -->
+<section>
+  <div class="meta-row rv"><span>№ 01 — THE PANEL</span><span>PRESS THE RIGHT BUZZER</span></div>
+  <h2 class="mega rv">Who you <em>buzzing?</em></h2>
+  <div class="buzz-grid">
+    <div class="panel rv">
+      <div class="p-head"><b>BODEGA BAR ATL</b>1085 KATHERWOOD DR SW · WALK-UP</div>
+      <button class="buzzer" data-topic="general" data-unit="1A">
+        <span class="btn-led"></span>
+        <span class="lab">Front of House<small>General questions, say hi</small></span>
+        <span class="unit">1A</span>
+      </button>
+      <button class="buzzer" data-topic="press" data-unit="2B">
+        <span class="btn-led"></span>
+        <span class="lab">Press<small>Media, interviews, photography</small></span>
+        <span class="unit">2B</span>
+      </button>
+      <button class="buzzer" data-topic="events" data-unit="3C">
+        <span class="btn-led"></span>
+        <span class="lab">Private Events<small>Buyouts, parties, the back room</small></span>
+        <span class="unit">3C</span>
+      </button>
+      <button class="buzzer" data-topic="artists" data-unit="4D">
+        <span class="btn-led"></span>
+        <span class="lab">Artists<small>On the Wall submissions</small></span>
+        <span class="unit">4D</span>
+      </button>
+      <button class="buzzer" data-topic="vendors" data-unit="5E">
+        <span class="btn-led"></span>
+        <span class="lab">Vendors<small>Reps &amp; purveyors — ring once, be nice</small></span>
+        <span class="unit">5E</span>
+      </button>
+      <div class="p-foot">NO MENUS · NO FLYERS · NO SOLICITING (UNLESS IT'S GOOD)</div>
+    </div>
+
+    <div class="ticket-zone rv d1">
+      <div class="ticket-idle" id="ticketIdle">
+        ☝ RING A BELL TO START A TICKET<br>
+        WE ANSWER EVERY BUZZ
+      </div>
+      <form class="ticket" id="ticket" novalidate>
+        <div class="t-head">
+          <div class="t-title">ORDER TICKET</div>
+          <div class="t-sub">BODEGA BAR ATL — INBOX · COPY 1 OF 1</div>
+        </div>
+        <div class="t-topic"><span>RE: <b id="tTopic">FRONT OF HOUSE</b></span><span id="tUnit">UNIT 1A</span></div>
+        <label for="f-name">Name</label>
+        <input id="f-name" type="text" required autocomplete="name" placeholder="Who's buzzing?">
+        <label for="f-email">Email</label>
+        <input id="f-email" type="email" required autocomplete="email" placeholder="you@example.com">
+        <div id="extraFields"></div>
+        <label for="f-msg">The message</label>
+        <textarea id="f-msg" rows="4" required placeholder="Talk to us…"></textarea>
+        <button type="submit" id="tSubmit">SEND IT UP →</button>
+        <div class="t-foot">TICKETS ANSWERED IN ORDER · USUALLY FAST</div>
+        <div class="stamp" id="stamp">RECEIVED ✔<br>WE'LL HOLLER BACK</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- THE CORNER -->
+<section class="corner">
+  <div class="meta-row rv"><span>№ 02 — THE CORNER</span><span>SYLVAN HILLS, SW ATLANTA</span></div>
+  <h2 class="mega rv">Come see <em>about us.</em></h2>
+  <div class="mapstage rv">
+    <div class="canopy" aria-hidden="true"></div>
+    <iframe title="Map — Bodega Bar ATL, 1085 Katherwood Dr SW, Atlanta GA 30310" src="https://maps.google.com/maps?q=1085+Katherwood+Dr+SW+Atlanta+GA+30310&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="map-shade" aria-hidden="true"></div>
+    <div class="pin" aria-hidden="true">
+      <span class="dot"></span>
+      <span class="pin-tag">BODEGA BAR — RIGHT HERE</span>
+    </div>
+    <aside class="dircard">
+      <h3>Pull up.</h3>
+      <div class="drow"><span class="k">Address</span><span class="v"><a href="https://maps.google.com/?q=1085+Katherwood+Dr+SW+Atlanta+GA+30310" target="_blank" rel="noopener">1085 Katherwood Dr SW<br>Atlanta, GA 30310</a></span></div>
+      <div class="drow"><span class="k">Hood</span><span class="v">Sylvan Hills — SW Atlanta</span></div>
+      <div class="drow"><span class="k">Phone</span><span class="v"><a href="tel:+14702468872">(470) 246-8872</a></span></div>
+      <div class="drow"><span class="k">Email</span><span class="v"><a href="mailto:info@bodegabaratl.com">info@bodegabaratl.com</a></span></div>
+      <div class="drow"><span class="k">IG</span><span class="v"><a href="https://instagram.com/bodegabaratl" target="_blank" rel="noopener">@bodegabaratl</a></span></div>
+      <div class="drow"><span class="k">Hours</span><span class="v"><span class="soon">Opening 2026 — watch the gate.</span></span></div>
+      <a class="dbtn" href="https://maps.google.com/?q=1085+Katherwood+Dr+SW+Atlanta+GA+30310" target="_blank" rel="noopener">GET DIRECTIONS →</a>
+      <p class="dfoot">TELL YOUR DRIVER: THE CORNER WITH THE GATE</p>
+    </aside>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="band">
+  <h3>Don't wanna wait by the door? <em>Get on the list.</em></h3>
+  <a class="btn btn-ink" href="index.html#list">Print My Receipt →</a>
+</section>
+
+<!-- FOOTER -->
+<footer id="visit">
+  <div class="foot-grid">
+    <div>
+      <p class="foot-logo">Street outside, gallery light inside.
+        <span class="sub">Bodega Bar ATL — Sylvan Hills</span>
+      </p>
+    </div>
+    <div>
+      <h4>Visit</h4>
+      <a href="https://maps.google.com/?q=1085+Katherwood+Dr+SW+Atlanta+GA+30310" target="_blank" rel="noopener">1085 Katherwood Dr SW<br>Atlanta, GA 30310</a>
+      <a href="tel:+14702468872">(470) 246-8872</a>
+      <a href="mailto:info@bodegabaratl.com">info@bodegabaratl.com</a>
+    </div>
+    <div>
+      <h4>Follow</h4>
+      <a href="https://instagram.com/bodegabaratl" target="_blank" rel="noopener">Instagram — @bodegabaratl</a>
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="index.html#list">Get on the List</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 BODEGA BAR ATL</span>
+    <span>OPEN LATE · SOON</span>
+  </div>
+</footer>
+
+<script>
+const motionOK=!matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// nav scroll state
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>60)},{passive:true});
+
+// mobile nav
+const mnav=document.getElementById('mobileNav');
+document.getElementById('hamburger').addEventListener('click',()=>mnav.classList.add('open'));
+document.getElementById('navClose').addEventListener('click',()=>mnav.classList.remove('open'));
+mnav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mnav.classList.remove('open')));
+
+// scroll reveals
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// —— BUZZER → TICKET system ——
+const topics={
+  general:{label:'FRONT OF HOUSE',extras:[]},
+  press:{label:'PRESS',extras:[{id:'f-outlet',label:'Outlet / publication',ph:'Eater Atlanta, ATL INtown…'}]},
+  events:{label:'PRIVATE EVENTS',extras:[
+    {id:'f-date',label:'Date you\'re eyeing',ph:'MM / DD / YYYY',type:'text'},
+    {id:'f-size',label:'Headcount',ph:'How many mouths?'}
+  ]},
+  artists:{label:'ON THE WALL — ARTIST',extras:[{id:'f-port',label:'Portfolio / IG link',ph:'@yourhandle or URL'}]},
+  vendors:{label:'VENDORS',extras:[{id:'f-co',label:'Company',ph:'Who you with?'}]}
+};
+const ticket=document.getElementById('ticket');
+const idle=document.getElementById('ticketIdle');
+const tTopic=document.getElementById('tTopic');
+const tUnit=document.getElementById('tUnit');
+const extra=document.getElementById('extraFields');
+const stamp=document.getElementById('stamp');
+
+document.querySelectorAll('.buzzer').forEach(bz=>{
+  bz.addEventListener('click',()=>{
+    document.querySelectorAll('.buzzer').forEach(b=>b.classList.remove('active'));
+    bz.classList.add('active');
+    bz.classList.remove('buzzing');void bz.offsetWidth;bz.classList.add('buzzing');
+    const t=topics[bz.dataset.topic];
+    tTopic.textContent=t.label;
+    tUnit.textContent='UNIT '+bz.dataset.unit;
+    extra.innerHTML=t.extras.map(x=>`<label for="${x.id}">${x.label}</label><input id="${x.id}" type="text" placeholder="${x.ph}">`).join('');
+    idle.style.display='none';
+    ticket.classList.remove('done','show');
+    stamp.classList.remove('hit');
+    void ticket.offsetWidth; // restart print animation
+    ticket.classList.add('show');
+    if(innerWidth<900)ticket.scrollIntoView({behavior:motionOK?'smooth':'auto',block:'center'});
+  });
+});
+
+ticket.addEventListener('submit',e=>{
+  e.preventDefault();
+  if(!ticket.reportValidity())return;
+  ticket.classList.add('done');
+  stamp.classList.add('hit');
+});
+</script>
+<script src="fx.js" defer></script>
+</body>
+</html>

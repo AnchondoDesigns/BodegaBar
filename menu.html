@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0D0C0B">
+<link rel="icon" type="image/png" href="assets/BodegaBar_Logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bodega Bar ATL">
+<meta property="og:title" content="The Menu — Bodega Bar ATL">
+<meta property="og:description" content="NYC-inspired small plates, mains, handhelds and family style, plus cutting-edge cocktails, wine and beer.">
+<meta property="og:url" content="https://www.bodegabaratl.com/menu">
+<meta property="og:image" content="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/80a5b2a5-3289-49f8-ade4-91d2d08830ef/baconeggchz?format=1500w">
+<meta name="twitter:card" content="summary_large_image">
+<title>The Menu — Bodega Bar ATL | Dinner & Libations</title>
+<meta name="description" content="The full Bodega Bar ATL menu — NYC-inspired small plates, mains, handhelds and family style, plus cutting-edge cocktails, wine and beer. Sylvan Hills, Atlanta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&family=Archivo:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Restaurant",
+  "name":"Bodega Bar ATL",
+  "servesCuisine":["American","New American","Cocktail Bar"],
+  "address":{"@type":"PostalAddress","streetAddress":"1085 Katherwood Dr SW","addressLocality":"Atlanta","addressRegion":"GA","postalCode":"30310"},
+  "telephone":"+14702468872",
+  "email":"info@bodegabaratl.com",
+  "url":"https://www.bodegabaratl.com",
+  "hasMenu":{"@type":"Menu","name":"Dinner & Libations"}
+}
+</script>
+<style>
+:root{
+  --cream:#FFF4E2;
+  --paper:#FBF3E4;
+  --brick:#E94B3C;
+  --red-field:#D8402F;
+  --orange:#F58524;
+  --gold:#FFB73D;
+  --ink:#1A1A1A;
+  --night:#0D0C0B;
+  --ease-enter:cubic-bezier(.22,1,.36,1);
+  --ease-cinematic:cubic-bezier(.83,0,.17,1);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+@view-transition{navigation:auto}
+body{
+  background:var(--cream);color:var(--ink);
+  font-family:'Archivo',sans-serif;
+  font-size:clamp(1rem,.95rem + .3vw,1.125rem);line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+::selection{background:var(--gold);color:var(--ink)}
+img{max-width:100%;display:block}
+a{color:inherit}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.06;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ===== NAV ===== */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px clamp(20px,4vw,64px);
+  transition:background .4s var(--ease-enter),padding .4s;
+}
+nav.scrolled{background:var(--ink);padding:8px clamp(20px,4vw,64px)}
+.nav-logo img{height:92px;width:auto;transition:height .4s}
+nav.scrolled .nav-logo img{height:58px}
+.nav-links{display:flex;align-items:center;gap:clamp(14px,2.6vw,36px);list-style:none}
+.nav-links a{
+  text-decoration:none;font-weight:600;font-size:.88rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--cream);position:relative;
+}
+.nav-links a:not(.cta)::after{
+  content:"";position:absolute;left:0;bottom:-5px;height:2px;width:0;
+  background:var(--gold);transition:width .3s var(--ease-enter);
+}
+.nav-links a:not(.cta):hover::after{width:100%}
+.cta{background:var(--gold);color:var(--ink)!important;padding:11px 22px;font-weight:700;transition:transform .25s var(--ease-spring)}
+.cta:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--cream)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;font-family:'IBM Plex Mono';font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream)}
+.mobile-nav{
+  position:fixed;inset:0;background:var(--night);z-index:200;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:30px;opacity:0;pointer-events:none;transition:opacity .4s var(--ease-enter);
+}
+.mobile-nav.open{opacity:1;pointer-events:auto}
+.mobile-nav a{font-family:'Fraunces';font-size:2.2rem;font-style:italic;color:var(--gold);text-decoration:none}
+.mobile-nav .close{position:absolute;top:24px;right:24px;background:none;border:none;color:var(--cream);font-family:'IBM Plex Mono';font-size:.9rem;letter-spacing:.14em;cursor:pointer}
+
+/* ===== MENU HERO ===== */
+.mhero{
+  min-height:64svh;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:150px clamp(20px,4vw,64px) clamp(36px,5vh,64px);
+  color:var(--cream);
+  background:linear-gradient(180deg,#0D0C0B 0%,#0D0C0B 12%,#571E14 42%,var(--red-field) 70%);
+}
+.mhero .kicker{
+  font-family:'IBM Plex Mono';font-size:clamp(.78rem,.75rem+.2vw,.9rem);
+  letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:20px;
+}
+.mhero h1{
+  font-family:'Fraunces';font-size:clamp(3.4rem,11vw,10rem);line-height:.92;
+  letter-spacing:-.02em;font-weight:500;text-transform:uppercase;
+  font-variation-settings:'SOFT' 50,'WONK' 1,'opsz' 144;
+}
+.mhero h1 em{font-style:italic;color:var(--gold);text-transform:none;font-weight:440;font-variation-settings:'SOFT' 100,'WONK' 1,'opsz' 144}
+.mhero .ghostword{
+  position:absolute;top:8%;left:0;white-space:nowrap;
+  font-family:'Archivo';font-weight:700;text-transform:uppercase;
+  font-size:clamp(11rem,26vw,26rem);line-height:1;letter-spacing:.06em;
+  color:transparent;-webkit-text-stroke:2px rgba(255,244,226,.14);
+  user-select:none;animation:ghostcrawl 130s linear infinite;pointer-events:none;
+}
+@keyframes ghostcrawl{from{transform:translateX(2%)}to{transform:translateX(-52%)}}
+
+/* ===== SECTION NAV (sticky) ===== */
+.secnav{
+  position:sticky;top:0;z-index:90;background:var(--ink);
+  display:flex;gap:6px;overflow-x:auto;padding:14px clamp(20px,4vw,64px);
+  scrollbar-width:none;
+}
+.secnav::-webkit-scrollbar{display:none}
+.secnav a{
+  font-family:'IBM Plex Mono';font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;
+  color:#9b9388;text-decoration:none;padding:8px 14px;white-space:nowrap;
+  border:1px solid #2e2b27;transition:color .2s,border-color .2s,background .2s;
+}
+.secnav a:hover{color:var(--cream)}
+.secnav a.active{color:var(--ink);background:var(--gold);border-color:var(--gold);font-weight:600}
+.secnav .divider{color:#3a362f;padding:8px 4px;font-family:'IBM Plex Mono';font-size:.74rem}
+
+/* ===== SHARED COURSE STYLES ===== */
+.course{padding:clamp(64px,8vw,110px) clamp(20px,4vw,64px)}
+.course .meta-row{
+  display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;
+  font-family:'IBM Plex Mono';font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;
+  margin-bottom:14px;
+}
+.course h2{
+  font-family:'Fraunces';text-transform:uppercase;
+  font-size:clamp(2.2rem,6.5vw,5.5rem);line-height:.95;letter-spacing:-.015em;
+  font-variation-settings:'SOFT' 0,'WONK' 1,'wght' 240;
+  transition:font-variation-settings 1.4s var(--ease-enter);
+  margin-bottom:clamp(30px,4vw,56px);
+}
+.course h2.in{font-variation-settings:'SOFT' 55,'WONK' 1,'wght' 540}
+.course h2 em{font-style:italic;text-transform:none;font-weight:440}
+.items{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(32px,5vw,88px)}
+.item{
+  display:grid;grid-template-columns:1fr auto;gap:4px 18px;align-items:baseline;
+  padding:20px 0;border-top:1px solid;
+}
+.item .nm{font-family:'Fraunces';font-style:italic;font-size:clamp(1.2rem,1.1rem+.6vw,1.6rem);font-weight:520;line-height:1.15}
+.item .pr{font-family:'IBM Plex Mono';font-weight:600;font-size:.95rem;white-space:nowrap}
+.item .ds{grid-column:1 / -1;font-size:.92rem;line-height:1.55}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s var(--ease-enter),transform .6s var(--ease-enter)}
+.rv.in{opacity:1;transform:none}
+
+/* ===== DINNER (cream) ===== */
+.day{background:var(--cream);position:relative;overflow:hidden}
+/* dish ghost — photo haunts the background on item hover */
+.dishbg{position:absolute;inset:0;pointer-events:none;z-index:0}
+.dishbg img{
+  width:100%;height:100%;object-fit:cover;opacity:0;
+  transform:scale(1.06);filter:saturate(.9);
+  transition:opacity .7s var(--ease-enter),transform 6s linear;
+}
+.dishbg.show img{opacity:.16;transform:scale(1.12)}
+.day>*:not(.dishbg){position:relative;z-index:1}
+.day .item{cursor:crosshair;transition:padding-left .35s var(--ease-spring)}
+.day .item:hover{padding-left:14px}
+.day .item:hover .nm{color:var(--brick)}
+.day .meta-row{color:var(--brick)}
+.day h2 em{color:var(--brick)}
+.day .item{border-top-color:rgba(26,26,26,.18)}
+.day .item .pr{color:var(--brick)}
+.day .item .ds{color:#4a4640}
+.day.alt{background:var(--paper)}
+/* simple list (sides) */
+.simple-row{display:flex;flex-wrap:wrap;gap:12px}
+.simple-row .chip{
+  font-family:'IBM Plex Mono';font-size:.85rem;letter-spacing:.06em;
+  border:2px solid var(--ink);padding:12px 18px;background:var(--cream);
+  transition:transform .25s var(--ease-spring),box-shadow .25s;
+}
+.simple-row .chip b{color:var(--brick);margin-left:8px}
+.simple-row .chip:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--gold)}
+/* family style feature */
+.feature{
+  display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,4vw,64px);align-items:center;
+  border:2px solid var(--ink);padding:clamp(24px,4vw,56px);background:var(--paper);
+}
+.feature .fnm{font-family:'Fraunces';font-style:italic;font-size:clamp(1.8rem,4vw,3.2rem);font-weight:500;line-height:1.05}
+.feature .fds{margin-top:14px;color:#4a4640}
+.feature .fpr{font-family:'IBM Plex Mono';font-weight:600;color:var(--brick);font-size:1.2rem;margin-top:18px}
+.feature .fimg{border:2px solid var(--ink);aspect-ratio:4/3;overflow:hidden}
+.feature .fimg img{width:100%;height:100%;object-fit:cover}
+
+/* ===== DUSK — the page experiences sunset ===== */
+.dusk{
+  height:175vh;position:relative;
+  background:linear-gradient(180deg,
+    var(--paper) 0%,
+    #EBC487 14%,
+    #DD8A48 30%,
+    #A4432A 48%,
+    #4A1D14 68%,
+    #1A100C 84%,
+    var(--night) 100%);
+}
+.dusk-sticky{
+  position:sticky;top:0;height:100svh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:0 clamp(20px,4vw,64px);
+}
+.dusk-sticky .dtime{
+  font-family:'IBM Plex Mono';font-size:.8rem;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--cream);opacity:0;margin-bottom:22px;
+}
+.dusk-sticky h2{
+  font-family:'Fraunces';font-size:clamp(2.4rem,7vw,6.5rem);line-height:1.02;
+  font-weight:480;text-transform:uppercase;letter-spacing:-.015em;
+  font-variation-settings:'SOFT' 60,'WONK' 1;
+  color:var(--cream);opacity:0;
+}
+.dusk-sticky h2 em{
+  font-style:italic;text-transform:none;font-weight:420;color:var(--gold);
+  text-shadow:
+    0 0 calc(36px*var(--ignite,0)) rgba(255,183,61,calc(.7*var(--ignite,0))),
+    0 0 calc(110px*var(--ignite,0)) rgba(245,133,36,calc(.45*var(--ignite,0)));
+}
+/* ===== LIBATIONS (night) ===== */
+.nite{background:var(--night);color:var(--cream);position:relative;overflow:hidden}
+.nite .meta-row{color:var(--gold)}
+.nite h2 em{
+  color:var(--gold);
+  text-shadow:0 0 calc(8px + 26px*var(--prox,.3)) rgba(255,183,61,calc(.25 + .45*var(--prox,.3))),0 0 calc(40px + 60px*var(--prox,.3)) rgba(245,133,36,calc(.12 + .3*var(--prox,.3)));
+}
+.nite .item{border-top-color:#2e2b27}
+.nite .item .pr{color:var(--gold)}
+.nite .item .ds{color:#948c7f}
+.nite .item .nm{cursor:crosshair;transition:color .2s}
+.nite .item:hover .nm{color:var(--gold)}
+.barlight{
+  position:absolute;left:0;top:0;width:1100px;height:1100px;margin:-550px 0 0 -550px;
+  pointer-events:none;z-index:1;will-change:transform;
+  background:radial-gradient(circle,rgba(255,183,61,.2) 0%,rgba(245,133,36,.12) 22%,rgba(233,75,60,.05) 42%,transparent 68%);
+  mix-blend-mode:screen;filter:blur(2px);
+}
+.barlight::after{
+  content:"";position:absolute;inset:38%;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,236,200,.15) 0%,transparent 70%);
+  animation:candle 3.2s ease-in-out infinite alternate;
+}
+@keyframes candle{from{opacity:.75;transform:scale(.96)}to{opacity:1;transform:scale(1.05)}}
+.nite>*:not(.barlight){position:relative;z-index:2}
+/* wine & beer columns */
+.cellar{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(32px,5vw,88px)}
+.pour{
+  display:grid;grid-template-columns:1fr auto;gap:2px 18px;align-items:baseline;
+  padding:14px 0;border-top:1px solid #2e2b27;
+}
+.pour .nm{font-weight:600;font-size:1rem;letter-spacing:.02em}
+.pour .pr{font-family:'IBM Plex Mono';color:var(--gold);font-weight:600;font-size:.9rem}
+.pour .ds{grid-column:1/-1;font-size:.82rem;color:#948c7f;font-family:'IBM Plex Mono';letter-spacing:.04em}
+/* sharing punch */
+.punch{
+  border:2px solid #2e2b27;padding:clamp(24px,4vw,48px);margin-top:clamp(36px,5vw,64px);
+  display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+}
+.punch .fnm{font-family:'Fraunces';font-style:italic;font-size:clamp(1.6rem,3.5vw,2.6rem)}
+.punch .fds{color:#948c7f;margin-top:8px;font-size:.95rem}
+.punch .fpr{font-family:'IBM Plex Mono';color:var(--gold);font-weight:600;font-size:1.6rem}
+
+/* floating drink polaroid */
+.float-drink{
+  position:fixed;z-index:90;width:200px;aspect-ratio:3/4;pointer-events:none;
+  border:7px solid var(--cream);background:var(--ink);
+  transform:rotate(4deg) scale(.85);opacity:0;
+  transition:opacity .25s var(--ease-enter),transform .35s var(--ease-spring);overflow:hidden;
+}
+.float-drink.show{opacity:1;transform:rotate(4deg) scale(1)}
+.float-drink img{width:100%;height:100%;object-fit:cover}
+
+/* ===== CTA BAND (gold) ===== */
+.band{
+  background:var(--gold);padding:clamp(48px,7vw,90px) clamp(20px,4vw,64px);
+  display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;
+}
+.band h3{
+  font-family:'Fraunces';font-size:clamp(1.8rem,4.5vw,3.6rem);line-height:1;font-weight:500;
+  text-transform:uppercase;letter-spacing:-.01em;font-variation-settings:'SOFT' 50,'WONK' 1;
+}
+.band h3 em{font-style:italic;color:var(--red-field);text-transform:none}
+.btn{
+  text-decoration:none;font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;
+  padding:17px 30px;display:inline-block;transition:transform .25s var(--ease-spring),box-shadow .25s;
+}
+.btn-ink{background:var(--ink);color:var(--cream)}
+.btn-ink:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--red-field)}
+
+/* ===== FOOTER ===== */
+footer{background:var(--ink);color:var(--cream);padding:clamp(48px,7vw,90px) clamp(20px,4vw,64px) 36px}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:clamp(28px,4vw,64px);margin-bottom:48px}
+.foot-grid h4{font-family:'IBM Plex Mono';font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.foot-grid a{color:#cfc6b8;text-decoration:none;display:block;padding:4px 0;transition:color .2s}
+.foot-grid a:hover{color:var(--gold)}
+.foot-logo{font-family:'Fraunces';font-size:clamp(1.5rem,1.2rem+1.5vw,2.4rem);font-style:italic;font-weight:520;line-height:1.15;max-width:16ch}
+.foot-logo .sub{font-family:'IBM Plex Mono';font-style:normal;font-size:.74rem;letter-spacing:.2em;color:#8a8378;display:block;margin-top:14px;text-transform:uppercase}
+.foot-bottom{
+  border-top:1px solid #2c2925;padding-top:22px;display:flex;justify-content:space-between;
+  gap:18px;flex-wrap:wrap;font-family:'IBM Plex Mono';font-size:.72rem;letter-spacing:.12em;color:#8a8378;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .items,.cellar{grid-template-columns:1fr}
+  .feature{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .nav-links{display:none}
+  .hamburger{display:block}
+  .foot-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+  .barlight,.float-drink{display:none}
+  .mhero .ghostword{animation:none}
+  .dusk{height:auto;padding:120px 24px}
+  .dusk-sticky{position:static;height:auto}
+  .course h2{font-variation-settings:'SOFT' 55,'WONK' 1,'wght' 540}
+}
+</style>
+<link rel="stylesheet" href="fx.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="index.html" aria-label="Bodega Bar ATL home">
+    <img src="assets/BodegaBar_Logo.png" alt="Bodega Bar">
+  </a>
+  <ul class="nav-links">
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="index.html#on-the-wall">On the Wall</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a class="cta" href="index.html#list">Get on the List</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">Menu ＋</button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <button class="close" id="navClose">Close ✕</button>
+  <a href="index.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="about.html">About</a>
+  <a href="index.html#on-the-wall">On the Wall</a>
+  <a href="contact.html">Contact</a>
+  <a href="index.html#list">Get on the List</a>
+</div>
+
+<!-- MENU HERO -->
+<header class="mhero">
+  <span class="ghostword" aria-hidden="true">DINNER&nbsp;★&nbsp;LIBATIONS&nbsp;★&nbsp;DINNER&nbsp;★&nbsp;LIBATIONS&nbsp;★&nbsp;</span>
+  <div>
+    <span class="kicker">The full lineup — hung fresh daily</span>
+    <h1>The <em>menu.</em></h1>
+  </div>
+</header>
+
+<!-- STICKY SECTION NAV -->
+<div class="secnav" id="secnav">
+  <a href="#small-plates">Small Plates</a>
+  <a href="#mains">Mains</a>
+  <a href="#handhelds">Handhelds</a>
+  <a href="#sides">Sides</a>
+  <a href="#family-style">Family Style</a>
+  <a href="#dessert">Dessert</a>
+  <span class="divider">★</span>
+  <a href="#citrusy">Citrusy</a>
+  <a href="#spirit-forward">Spirit Forward</a>
+  <a href="#wine-beer">Wine &amp; Beer</a>
+  <a href="#sharing">For Sharing</a>
+  <a href="#dessert-cocktails">Dessert Cocktails</a>
+</div>
+
+<!-- ================= DINNER ================= -->
+<a id="dinner"></a>
+
+<section class="course day" id="small-plates">
+  <div class="dishbg" aria-hidden="true"><img alt=""></div>
+  <div class="meta-row rv"><span>DINNER — № 01</span><span>SMALL PLATES</span></div>
+  <h2 class="rv">Small <em>plates.</em></h2>
+  <div class="items">
+    <div class="item rv" data-bg="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/000c1f67-cd87-4063-826f-f07f5aed90b8/rangoons.jpeg?format=1500w"><span class="nm">Lox Rangoons</span><span class="pr">13</span><span class="ds">Cold smoked salmon, cream cheese, red onion, tomato caper jam, fresh dill</span></div>
+    <div class="item rv" data-bg="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/dfc0ff36-41b1-41f6-9cf8-27d93ea05891/falafel.jpeg?format=1500w"><span class="nm">Falafel</span><span class="pr">9</span><span class="ds">Housemade fried chickpea balls served with tzatziki &amp; hot sauce</span></div>
+    <div class="item rv"><span class="nm">Hummus w/ Veg</span><span class="pr">10</span><span class="ds">Daily vegetable assortment, pita points, olives, fresh herbs</span></div>
+    <div class="item rv"><span class="nm">Buffalo Wings</span><span class="pr">13</span><span class="ds">Marinated, smoked, and fried chicken wings served with veg &amp; bleu chz (6)</span></div>
+    <div class="item rv"><span class="nm">Meatballs</span><span class="pr">9</span><span class="ds">Ground beef &amp; pork mix served with house marinara and fresh herbs</span></div>
+  </div>
+</section>
+
+<section class="course day alt" id="mains">
+  <div class="dishbg" aria-hidden="true"><img alt=""></div>
+  <div class="meta-row rv"><span>DINNER — № 02</span><span>MAINS</span></div>
+  <h2 class="rv">The <em>mains.</em></h2>
+  <div class="items">
+    <div class="item rv" data-bg="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/fe21d468-843d-4618-a9c1-c0973b5a7f50/REL04761-2.jpeg?format=1500w"><span class="nm">Chicken Parm</span><span class="pr">19</span><span class="ds">Marinated and fried chicken breast, spaghetti, marinara, fresh mozz, basil</span></div>
+    <div class="item rv"><span class="nm">General Tso's</span><span class="pr">15</span><span class="ds">Local mushrooms or chicken thigh, breaded and fried, served with white rice</span></div>
+    <div class="item rv"><span class="nm">Beef &amp; Broccoli</span><span class="pr">17</span><span class="ds">Grass-fed flank steak, chinese broccoli, white rice, sesame, green onion</span></div>
+    <div class="item rv" data-bg="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/ea2a7ffa-1d20-4f3c-89c1-148cabb93135/schwarma.jpeg?format=1500w"><span class="nm">Chicken Schwarma</span><span class="pr">19</span><span class="ds">Marinated and grilled chicken thigh, yellow rice, LTO, tzatziki, hot sauce</span></div>
+  </div>
+</section>
+
+<section class="course day" id="handhelds">
+  <div class="dishbg" aria-hidden="true"><img alt=""></div>
+  <div class="meta-row rv"><span>DINNER — № 03</span><span>HANDHELDS</span></div>
+  <h2 class="rv">Hand<em>helds.</em></h2>
+  <div class="items">
+    <div class="item rv" data-bg="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/a9692d8e-fc87-4bef-9437-82ae721a38d0/choppy+chz.jpeg?format=1500w"><span class="nm">Chopped Cheese</span><span class="pr">16</span><span class="ds">Grass-fed ground beef, fontina chz sauce, spicy mayo, LTO, italian bread</span></div>
+    <div class="item rv"><span class="nm">Puerto Rican Porky</span><span class="pr">14</span><span class="ds">Smoked pork, white american, onions, pickles, avocado-dijonnaise, ciabatta</span></div>
+    <div class="item rv" data-bg="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/5c946454-8560-4ce0-bca8-7f08d58ba309/dogs.png?format=1500w"><span class="nm">NY Hot Dog</span><span class="pr">6</span><span class="ds">Nathan's jumbo all-beef frank, kraut, spicy relish, brown mustard, brioche</span></div>
+    <div class="item rv" data-bg="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/7338995e-9cc5-419c-9065-c7640ddba1fb/yolk+sandwich.jpeg?format=1500w"><span class="nm">General Tso's Sammy</span><span class="pr">21</span><span class="ds">Marinated, breaded and fried chicken thigh, broccoli slaw, soy-cured egg yolk</span></div>
+    <div class="item rv" data-bg="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/80a5b2a5-3289-49f8-ade4-91d2d08830ef/baconeggchz?format=1500w"><span class="nm">Bacon Egg &amp; Chz</span><span class="pr">13</span><span class="ds">Organic housemade egg patty, thick-cut bacon, spicy mayo, green onion</span></div>
+    <div class="item rv"><span class="nm">Reuben</span><span class="pr">15</span><span class="ds">Pastrami, swiss american, 1000 island, Jewish rye, sauerkraut</span></div>
+  </div>
+</section>
+
+<section class="course day alt" id="sides">
+  <div class="meta-row rv"><span>DINNER — № 04</span><span>SIDES</span></div>
+  <h2 class="rv">On the <em>side.</em></h2>
+  <div class="simple-row rv">
+    <span class="chip">HAND CUT FRIES<b>5</b></span>
+    <span class="chip">TOSTONES<b>4</b></span>
+    <span class="chip">ROTATING WOK VEG<b>7</b></span>
+    <span class="chip">GREEK SALAD<b>5 / 12</b></span>
+    <span class="chip">BROCCOLI SLAW<b>4</b></span>
+  </div>
+</section>
+
+<section class="course day" id="family-style">
+  <div class="meta-row rv"><span>DINNER — № 05</span><span>FAMILY STYLE</span></div>
+  <h2 class="rv">For the <em>table.</em></h2>
+  <div class="feature rv">
+    <div>
+      <p class="fnm">Peking Duck</p>
+      <p class="fds">Scallion pancakes, hoisin, green onion, sugar, crispy ½ duck. Feeds 2–3 — bring people you like.</p>
+      <p class="fpr">35</p>
+    </div>
+    <div class="fimg"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/be2b522d-cc6d-4a60-998f-19574e96dcb2/REL04784.jpeg?format=1000w" alt="Family style at Bodega Bar"></div>
+  </div>
+</section>
+
+<section class="course day alt" id="dessert">
+  <div class="meta-row rv"><span>DINNER — № 06</span><span>DESSERT</span></div>
+  <h2 class="rv">Sweet <em>finish.</em></h2>
+  <div class="items">
+    <div class="item rv"><span class="nm">NY Cheesecake</span><span class="pr">9</span><span class="ds">Seasonal compote</span></div>
+    <div class="item rv"><span class="nm">Black and White Cookie</span><span class="pr">6</span><span class="ds">Served with milk</span></div>
+  </div>
+</section>
+
+<!-- ================= DUSK ================= -->
+<section class="dusk" id="dusk" aria-hidden="true">
+  <div class="dusk-sticky">
+    <p class="dtime">KATHERWOOD DR SW — 8:47 PM</p>
+    <h2>The sun goes down.<br><em>The neon comes&nbsp;on.</em></h2>
+  </div>
+</section>
+
+<!-- ================= LIBATIONS ================= -->
+<a id="libations"></a>
+
+<section class="course nite" id="citrusy">
+  <div class="barlight" id="barlight" aria-hidden="true"></div>
+  <div class="meta-row rv"><span>LIBATIONS — № 01</span><span>CITRUSY</span></div>
+  <h2 class="rv">Bright &amp; <em>citrusy.</em></h2>
+  <div class="items">
+    <div class="item rv" data-img="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/c1defde0-9da6-4bd4-aa24-4d5e963025cd/pretty+cocktail.jpeg?format=600w"><span class="nm">Goldie</span><span class="pr">13</span><span class="ds">Ilegal Joven mezcal, celery, apple, lime, lemon-lime soda</span></div>
+    <div class="item rv"><span class="nm">Canal St #3</span><span class="pr">11</span><span class="ds">Don Q rum, orange/berry oleo, soy sauce, lime</span></div>
+    <div class="item rv" data-img="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/03423200-d041-4ac2-973c-db6a72b4fb2c/Luna+park.jpeg?format=600w"><span class="nm">Luna Park After Dark</span><span class="pr">12</span><span class="ds">21 Blanco, carrot, lime, grape soda</span></div>
+    <div class="item rv" data-img="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/ef213f24-e19b-4239-8167-2064731ad052/sippy+sip.jpeg?format=600w"><span class="nm">Spellbound to HMart</span><span class="pr">14</span><span class="ds">Murrel's Row Tulsi gin, taro milk, yuzu, ginger tea, bitters</span></div>
+    <div class="item rv" data-img="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/02ab3f97-54d0-4c60-a961-d067dd0e699a/strawberry+drank.jpeg?format=600w"><span class="nm">Bodega Babes</span><span class="pr">13</span><span class="ds">Ketel One vodka, strawberry Snapple reduction, lemon, bubbles</span></div>
+  </div>
+</section>
+
+<section class="course nite" id="spirit-forward" style="padding-top:0">
+  <div class="meta-row rv"><span>LIBATIONS — № 02</span><span>SPIRIT FORWARD</span></div>
+  <h2 class="rv">Spirit <em>forward.</em></h2>
+  <div class="items">
+    <div class="item rv"><span class="nm">Party on Fifth Ave</span><span class="pr">13</span><span class="ds">Taconic Straight bourbon, port wine, Cappalletti, orange bitters</span></div>
+    <div class="item rv"><span class="nm">Bing Bong</span><span class="pr">14</span><span class="ds">A clarified milk punch with Cazadores Reposado and Fruity Pebble cereal milk</span></div>
+    <div class="item rv"><span class="nm">Dr's Orders</span><span class="pr">17</span><span class="ds">Apple-infused clairin, ginger, honey, cinnamon mezcal foam</span></div>
+    <div class="item rv"><span class="nm">King Dale</span><span class="pr">13</span><span class="ds">Rye &amp; rum blend, plum wine cordial, sassafras bitters, sage oil</span></div>
+  </div>
+</section>
+
+<section class="course nite" id="wine-beer" style="padding-top:0">
+  <div class="meta-row rv"><span>LIBATIONS — № 03</span><span>WINE &amp; BEER</span></div>
+  <h2 class="rv">The <em>cellar &amp; the cooler.</em></h2>
+  <div class="cellar">
+    <div>
+      <div class="pour rv"><span class="nm">Stefan Vetter</span><span class="pr">10 / 35</span><span class="ds">POIRE METHODE RURALE – SPARKLING – GERMANY</span></div>
+      <div class="pour rv"><span class="nm">Pheasant's Tears</span><span class="pr">12 / 40</span><span class="ds">KHIKHVI – WHITE BLEND – GEORGIA</span></div>
+      <div class="pour rv"><span class="nm">Brendan Stater</span><span class="pr">13 / 45</span><span class="ds">WEST SAUMER RIPAILLE – CAB FRANC – FRANCE</span></div>
+      <div class="pour rv"><span class="nm">Ricca Terra</span><span class="pr">9 / 30</span><span class="ds">BULLETS B4 CANNONBALL – RED – AUSTRALIA</span></div>
+      <div class="pour rv"><span class="nm">Zanasi</span><span class="pr">13 / 48</span><span class="ds">LAMBRUSCO DI SORBARA TRADIZIONE – ITALY</span></div>
+      <div class="pour rv"><span class="nm">Hana Makggeoli</span><span class="pr">50</span><span class="ds">HWAJU – SAKE – NEW YORK</span></div>
+    </div>
+    <div>
+      <div class="pour rv"><span class="nm">Maine Beer Co.</span><span class="pr">13</span><span class="ds">PEEPER – PALE ALE</span></div>
+      <div class="pour rv"><span class="nm">Miller</span><span class="pr">2</span><span class="ds">HIGH LIFE – LAGER – WI</span></div>
+      <div class="pour rv"><span class="nm">Three Taverns</span><span class="pr">6</span><span class="ds">UKIYO – RICE LAGER – GA</span></div>
+      <div class="pour rv"><span class="nm">Original Sin</span><span class="pr">7</span><span class="ds">BLACK WIDOW – CIDER – NY</span></div>
+      <div class="pour rv"><span class="nm">Brooklyn Brewery</span><span class="pr">6</span><span class="ds">BROOKLYN PILSNER – NY</span></div>
+      <div class="pour rv"><span class="nm">Brooklyn Brewery</span><span class="pr">6</span><span class="ds">SPECIAL EFFECTS – N/A IPA</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="course nite" id="sharing" style="padding-top:0">
+  <div class="meta-row rv"><span>LIBATIONS — № 04</span><span>FOR SHARING</span></div>
+  <div class="punch rv">
+    <div>
+      <p class="fnm">Rotating House Punch</p>
+      <p class="fds">Ask your bartender or server for this week's punch. Serves 4–6 — the table that shares, stays.</p>
+    </div>
+    <p class="fpr">45</p>
+  </div>
+</section>
+
+<section class="course nite" id="dessert-cocktails" style="padding-top:0">
+  <div class="meta-row rv"><span>LIBATIONS — № 05</span><span>DESSERT COCKTAILS</span></div>
+  <h2 class="rv">One more, <em>for the road.</em></h2>
+  <div class="items">
+    <div class="item rv"><span class="nm">Espresso Martini</span><span class="pr">13</span><span class="ds">21 Reposado, vanilla orange oleo, fresh espresso, Borghetti, lemon peel</span></div>
+    <div class="item rv"><span class="nm">Lorena Snaps</span><span class="pr">15</span><span class="ds">Ron Zacapa 23, cream, snap pea</span></div>
+  </div>
+</section>
+
+<!-- FLOATING DRINK POLAROID -->
+<div class="float-drink" id="floatDrink" aria-hidden="true"><img id="floatDrinkImg" src="" alt=""></div>
+
+<!-- CTA BAND -->
+<section class="band">
+  <h3>Taste it first — <em>get on the list.</em></h3>
+  <a class="btn btn-ink" href="index.html#list">Print My Receipt →</a>
+</section>
+
+<!-- FOOTER -->
+<footer id="visit">
+  <div class="foot-grid">
+    <div>
+      <p class="foot-logo">Street outside, gallery light inside.
+        <span class="sub">Bodega Bar ATL — Sylvan Hills</span>
+      </p>
+    </div>
+    <div>
+      <h4>Visit</h4>
+      <a href="https://maps.google.com/?q=1085+Katherwood+Dr+SW+Atlanta+GA+30310" target="_blank" rel="noopener">1085 Katherwood Dr SW<br>Atlanta, GA 30310</a>
+      <a href="tel:+14702468872">(470) 246-8872</a>
+      <a href="mailto:info@bodegabaratl.com">info@bodegabaratl.com</a>
+    </div>
+    <div>
+      <h4>Follow</h4>
+      <a href="https://instagram.com/bodegabaratl" target="_blank" rel="noopener">Instagram — @bodegabaratl</a>
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="index.html#list">Get on the List</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 BODEGA BAR ATL</span>
+    <span>OPEN LATE · SOON</span>
+  </div>
+</footer>
+
+<script>
+const motionOK=!matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// nav scroll state
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>60)},{passive:true});
+
+// mobile nav
+const mnav=document.getElementById('mobileNav');
+document.getElementById('hamburger').addEventListener('click',()=>mnav.classList.add('open'));
+document.getElementById('navClose').addEventListener('click',()=>mnav.classList.remove('open'));
+mnav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mnav.classList.remove('open')));
+
+// scroll reveals
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// scrollspy for section nav
+const spy=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      document.querySelectorAll('.secnav a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));
+    }
+  });
+},{rootMargin:'-30% 0px -60% 0px'});
+document.querySelectorAll('section[id]').forEach(s=>spy.observe(s));
+
+// last call light across all night sections (one light, lives in first nite section, follows across)
+const nites=[...document.querySelectorAll('.nite')];
+const firstNite=nites[0];
+const light=document.getElementById('barlight');
+if(motionOK && firstNite){
+  let lx=0,ly=0,tx=0,ty=0,hasPointer=false;const t0=performance.now();
+  nites.forEach(sec=>{
+    sec.addEventListener('pointermove',e=>{
+      const r=firstNite.getBoundingClientRect();
+      tx=e.clientX-r.left; ty=e.clientY-r.top; hasPointer=true;
+    },{passive:true});
+    sec.addEventListener('pointerleave',()=>{hasPointer=false});
+  });
+  (function lamp(now){
+    const r=firstNite.getBoundingClientRect();
+    if(!hasPointer){
+      const t=now-t0;
+      tx=r.width*(0.5+0.38*Math.sin(t*0.00021));
+      ty=r.height*(0.6+0.45*Math.sin(t*0.00012+1.7));
+    }
+    lx+=(tx-lx)*.06; ly+=(ty-ly)*.06;
+    light.style.transform=`translate(${lx}px,${ly}px)`;
+    // neon proximity on each nite h2 em
+    nites.forEach(sec=>{
+      const em=sec.querySelector('h2 em');
+      if(!em)return;
+      const er=em.getBoundingClientRect();
+      const ex=er.left-r.left+er.width/2, ey=er.top-r.top+er.height/2;
+      const d=Math.hypot(lx-ex,ly-ey);
+      sec.style.setProperty('--prox',Math.max(0,Math.min(1,1-d/560)).toFixed(3));
+    });
+    requestAnimationFrame(lamp);
+  })(t0);
+}
+
+// —— DUSK: sticky text fades in, neon ignites with scroll progress ——
+const dusk=document.getElementById('dusk');
+const dtime=dusk.querySelector('.dtime');
+const dh2=dusk.querySelector('h2');
+if(motionOK){
+  addEventListener('scroll',()=>{
+    const r=dusk.getBoundingClientRect();
+    const total=r.height-innerHeight;
+    const p=Math.max(0,Math.min(1,-r.top/total)); // 0..1 through the dusk
+    const vis=Math.max(0,Math.min(1,(p-.12)/.3));   // text fades in early
+    dtime.style.opacity=vis*.85;
+    dh2.style.opacity=vis;
+    const ig=Math.max(0,Math.min(1,(p-.55)/.35));   // neon ignites late
+    dusk.style.setProperty('--ignite',ig.toFixed(3));
+  },{passive:true});
+}else{dtime.style.opacity=.85;dh2.style.opacity=1;dusk.style.setProperty('--ignite',1)}
+
+// —— dish ghosts: hover a dinner item, the dish haunts the section ——
+document.querySelectorAll('.day').forEach(sec=>{
+  const bg=sec.querySelector('.dishbg');
+  if(!bg)return;
+  const bimg=bg.querySelector('img');
+  sec.querySelectorAll('.item[data-bg]').forEach(it=>{
+    it.addEventListener('mouseenter',()=>{bimg.src=it.dataset.bg;bg.classList.add('show')});
+    it.addEventListener('mouseleave',()=>bg.classList.remove('show'));
+  });
+});
+
+// floating drink polaroid
+const fd=document.getElementById('floatDrink'),fdImg=document.getElementById('floatDrinkImg');
+if(matchMedia('(pointer:fine)').matches){
+  document.querySelectorAll('.item[data-img]').forEach(line=>{
+    line.addEventListener('mouseenter',()=>{fdImg.src=line.dataset.img;fd.classList.add('show')});
+    line.addEventListener('mouseleave',()=>fd.classList.remove('show'));
+    line.addEventListener('mousemove',e=>{
+      fd.style.left=(e.clientX+28)+'px';
+      fd.style.top=(e.clientY-145)+'px';
+    });
+  });
+}
+</script>
+<script src="fx.js" defer></script>
+</body>
+</html>

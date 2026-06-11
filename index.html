@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0D0C0B">
+<link rel="icon" type="image/png" href="assets/BodegaBar_Logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bodega Bar ATL">
+<meta property="og:title" content="Bodega Bar ATL — A Taste of NYC, Corner of Sylvan Hills">
+<meta property="og:description" content="NYC-inspired cuisine & art, cutting-edge cocktails, and exceptional hospitality. Coming soon to Sylvan Hills, Atlanta.">
+<meta property="og:url" content="https://www.bodegabaratl.com/">
+<meta property="og:image" content="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/80a5b2a5-3289-49f8-ade4-91d2d08830ef/baconeggchz?format=1500w">
+<meta name="twitter:card" content="summary_large_image">
+<title>Bodega Bar ATL — A Taste of NYC, Corner of Sylvan Hills</title>
+<meta name="description" content="Bodega Bar ATL — NYC-inspired cuisine & art, cutting-edge cocktails, and exceptional hospitality. Coming soon to Sylvan Hills, Atlanta. Get on the list.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&family=Archivo:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --cream:#FFF4E2;
+  --paper:#FBF3E4;
+  --brick:#E94B3C;
+  --red-field:#D8402F;   /* deepened brand red for large color fields */
+  --orange:#F58524;
+  --gold:#FFB73D;
+  --ink:#1A1A1A;
+  --night:#141312;
+  --ease-enter:cubic-bezier(.22,1,.36,1);
+  --ease-cinematic:cubic-bezier(.83,0,.17,1);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+@view-transition{navigation:auto}
+body{
+  background:var(--red-field);
+  color:var(--ink);
+  font-family:'Archivo',sans-serif;
+  font-size:clamp(1rem,.95rem + .3vw,1.125rem);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--gold);color:var(--ink)}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+/* grain */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.06;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============ NAV ============ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px clamp(20px,4vw,64px);
+  transition:background .4s var(--ease-enter),padding .4s;
+}
+nav.scrolled{background:var(--ink);padding:8px clamp(20px,4vw,64px)}
+.nav-logo img{height:92px;width:auto;transition:height .4s}
+nav.scrolled .nav-logo img{height:58px}
+.nav-links{display:flex;align-items:center;gap:clamp(14px,2.6vw,36px);list-style:none}
+.nav-links a{
+  text-decoration:none;font-weight:600;font-size:.88rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--cream);position:relative;
+}
+.nav-links a:not(.cta)::after{
+  content:"";position:absolute;left:0;bottom:-5px;height:2px;width:0;
+  background:var(--gold);transition:width .3s var(--ease-enter);
+}
+.nav-links a:not(.cta):hover::after{width:100%}
+.cta{
+  background:var(--gold);color:var(--ink)!important;padding:11px 22px;
+  font-weight:700;transition:transform .25s var(--ease-spring);
+}
+.cta:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--ink)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;font-family:'IBM Plex Mono';font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream)}
+
+/* ============ HERO — RED FIELD ============ */
+.hero{
+  min-height:100svh;position:relative;
+  padding:15vh clamp(20px,4vw,64px) 0;
+  display:flex;flex-direction:column;justify-content:flex-start;
+  color:var(--cream);
+  overflow:hidden;
+  background:linear-gradient(180deg,#0D0C0B 0%,#0D0C0B 9%,#571E14 30%,var(--red-field) 52%);
+}
+.hero-bottom{margin-top:auto}
+.hero>div:not(.hero-bg):not(.hero-stack){position:relative;z-index:2}
+.hero-stack{position:absolute}
+
+/* —— THE RED WALL AT DUSK (hero background system) —— */
+.hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none}
+/* layer 1: neon breath — tonal blobs drifting */
+.blob{
+  position:absolute;border-radius:50%;filter:blur(90px);
+  will-change:transform;
+}
+.blob.b1{
+  width:55vw;height:55vw;left:-12vw;top:-18vw;
+  background:radial-gradient(circle,#C2301F 0%,transparent 65%);
+  opacity:.85;animation:drift1 34s ease-in-out infinite alternate;
+}
+.blob.b2{
+  width:48vw;height:48vw;right:-10vw;bottom:-16vw;
+  background:radial-gradient(circle,rgba(245,133,36,.5) 0%,transparent 65%);
+  opacity:.65;animation:drift2 41s ease-in-out infinite alternate;
+}
+.blob.b3{
+  width:34vw;height:34vw;left:34vw;top:30vh;
+  background:radial-gradient(circle,#B52A1B 0%,transparent 62%);
+  opacity:.6;animation:drift3 28s ease-in-out infinite alternate;
+}
+@keyframes drift1{from{transform:translate(0,0) scale(1)}to{transform:translate(7vw,5vh) scale(1.12)}}
+@keyframes drift2{from{transform:translate(0,0) scale(1.08)}to{transform:translate(-6vw,-6vh) scale(.96)}}
+@keyframes drift3{from{transform:translate(0,0) scale(1)}to{transform:translate(-5vw,7vh) scale(1.15)}}
+/* layer 2: ghost type — colossal outlined wordmark crawling */
+.ghostword-hero{
+  position:absolute;top:6%;left:0;white-space:nowrap;
+  font-family:'Archivo';font-weight:700;text-transform:uppercase;
+  font-size:clamp(13rem,30vw,30rem);line-height:1;letter-spacing:.06em;
+  color:transparent;-webkit-text-stroke:2px rgba(255,244,226,.14);
+  user-select:none;
+  animation:ghostcrawl 120s linear infinite;
+}
+@keyframes ghostcrawl{from{transform:translateX(2%)}to{transform:translateX(-52%)}}
+/* layer 3: headlight sweep — a car passes every ~15s */
+.sweep{
+  position:absolute;inset:-10%;
+  background:linear-gradient(105deg,transparent 42%,rgba(255,236,200,.05) 50%,transparent 58%);
+  transform:translateX(-120%);
+  animation:sweep 15s var(--ease-cinematic) infinite;
+}
+@keyframes sweep{
+  0%,72%{transform:translateX(-120%)}
+  88%{transform:translateX(120%)}
+  100%{transform:translateX(120%)}
+}
+.kicker{
+  font-family:'IBM Plex Mono';font-size:clamp(.78rem,.75rem+.2vw,.9rem);letter-spacing:.22em;
+  text-transform:uppercase;color:var(--gold);display:block;margin-bottom:clamp(20px,3vh,40px);
+}
+.hero h1{
+  font-family:'Fraunces';
+  font-size:clamp(2.9rem,7.7vw,7.7rem);
+  line-height:.94;letter-spacing:-.02em;font-weight:500;
+  font-variation-settings:'SOFT' 50,'WONK' 1,'opsz' 144;
+  text-transform:uppercase;
+  position:relative;z-index:2;
+  max-width:62vw;
+}
+.hero h1 .line{display:block;overflow:hidden}
+.hero h1 .line>span{display:block;transform:translateY(110%);animation:rise 1s var(--ease-cinematic) forwards}
+.hero h1 .line:nth-child(2)>span{animation-delay:.1s}
+.hero h1 .line:nth-child(3)>span{animation-delay:.2s}
+.hero h1 .line:nth-child(4)>span{animation-delay:.3s}
+.hero h1 em{
+  font-style:italic;color:var(--gold);text-transform:none;
+  font-variation-settings:'SOFT' 100,'WONK' 1,'opsz' 144;font-weight:440;
+}
+@keyframes rise{to{transform:translateY(0)}}
+.hero-bottom{
+  display:flex;align-items:flex-end;justify-content:flex-end;gap:32px;
+  padding:clamp(28px,4vh,52px) 0 clamp(36px,5vh,64px);flex-wrap:wrap;
+}
+.hero-sub{
+  max-width:38ch;font-size:clamp(1.05rem,1rem+.4vw,1.3rem);font-weight:500;line-height:1.5;
+  margin-top:clamp(22px,3vh,36px);
+  opacity:0;animation:fadeup .8s var(--ease-enter) .55s forwards;
+}
+.hero-addr{
+  font-family:'IBM Plex Mono';font-size:.85rem;letter-spacing:.06em;margin-top:14px;color:#FFD9A8;
+}
+@keyframes fadeup{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fadeup .8s var(--ease-enter) .75s forwards}
+.btn{
+  text-decoration:none;font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;
+  padding:17px 30px;display:inline-block;transition:transform .25s var(--ease-spring),box-shadow .25s;
+}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--ink)}
+.btn-line{border:2px solid var(--cream);color:var(--cream)}
+.btn-line:hover{background:var(--cream);color:var(--red-field);transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--ink)}
+.btn-ink{border:2px solid var(--ink);color:var(--ink)}
+.btn-ink:hover{background:var(--ink);color:var(--cream);transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--gold)}
+
+/* hero photo stack — two shots taped up together */
+.hero-stack{
+  position:absolute;right:clamp(20px,5vw,80px);top:15vh;
+  width:clamp(240px,30vw,460px);z-index:1;
+}
+.hero-media{
+  position:relative;width:100%;aspect-ratio:4/5;
+  transform:rotate(2deg);
+  border:10px solid var(--cream);
+  overflow:hidden;background:var(--ink);
+}
+.hero-media img{width:100%;height:100%;object-fit:cover}
+.hero-drink{
+  position:absolute;left:-30%;bottom:-13%;width:66%;aspect-ratio:3/4;z-index:2;
+  border:8px solid var(--cream);overflow:hidden;background:var(--ink);
+  box-shadow:0 22px 44px -16px rgba(0,0,0,.55);
+  opacity:0;transform:rotate(-5deg);
+  animation:drinkin .9s var(--ease-spring) 2.1s forwards;
+}
+@keyframes drinkin{
+  from{opacity:0;transform:rotate(-9deg) translateY(30px) scale(.88)}
+  to{opacity:1;transform:rotate(-5deg) translateY(0) scale(1)}
+}
+.hero-drink img{width:100%;height:100%;object-fit:cover}
+.gate{
+  position:absolute;inset:0;z-index:2;
+  background:repeating-linear-gradient(180deg,#2a2724 0 26px,#3a3631 26px 30px,#211f1c 30px 34px);
+  animation:gateup 1.5s var(--ease-cinematic) .8s forwards;
+}
+@keyframes gateup{to{transform:translateY(-103%)}}
+
+/* ============ TICKER ============ */
+.ticker{
+  background:var(--ink);color:var(--cream);overflow:hidden;white-space:nowrap;
+  padding:16px 0;font-family:'IBM Plex Mono';font-size:1rem;letter-spacing:.14em;text-transform:uppercase;
+  position:relative;z-index:3;
+}
+.ticker-track{display:inline-block;animation:scrolltick 36s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker .star{color:var(--gold)}
+@keyframes scrolltick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ============ SECTIONS ============ */
+section{padding:clamp(80px,10vw,150px) clamp(20px,4vw,64px)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease-enter),transform .7s var(--ease-enter)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+
+/* ============ KITCHEN — CREAM BLOCK ============ */
+.kitchen{background:var(--cream);position:relative}
+.kitchen .mega{
+  font-family:'Fraunces';text-transform:uppercase;
+  font-size:clamp(2.6rem,8vw,7.5rem);line-height:.95;letter-spacing:-.015em;font-weight:520;
+  font-variation-settings:'SOFT' 50,'WONK' 1;
+  margin-bottom:-.35em;/* overlap into grid */
+  position:relative;z-index:2;
+}
+.kitchen .mega em{font-style:italic;color:var(--brick);text-transform:none;font-weight:440}
+.kitchen .meta-row{
+  display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;
+  font-family:'IBM Plex Mono';font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brick);
+  margin-bottom:clamp(24px,4vw,48px);
+}
+.exhibit-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,48px);
+  position:relative;z-index:1;padding-top:clamp(36px,5vw,72px);
+}
+.piece{position:relative}
+.piece:nth-child(2){transform:translateY(clamp(24px,4vw,64px))}
+.piece:nth-child(3){transform:translateY(clamp(12px,2vw,32px)) rotate(1.2deg)}
+.piece .frame{overflow:hidden;aspect-ratio:4/5;border:2px solid var(--ink)}
+.piece .frame img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease-enter);filter:saturate(1.04)}
+.piece:hover .frame img{transform:scale(1.05)}
+.wall-label{
+  background:var(--cream);border:2px solid var(--ink);
+  padding:16px 18px;margin:-2px 0 0;position:relative;
+}
+.wall-label h3{font-family:'Fraunces';font-style:italic;font-size:clamp(1.2rem,1.1rem+.6vw,1.6rem);font-weight:520;line-height:1.1}
+.wall-label .medium{font-size:.9rem;color:#4a4640;margin-top:6px}
+.wall-label .price{
+  font-family:'IBM Plex Mono';font-weight:600;color:var(--brick);margin-top:12px;font-size:.92rem;
+  display:flex;justify-content:space-between;
+}
+.wall-label .price span:last-child{color:#8a8378;font-weight:400;font-size:.74rem;letter-spacing:.12em}
+.sticker{
+  position:absolute;top:-16px;right:-12px;z-index:2;
+  background:var(--brick);color:var(--cream);font-family:'IBM Plex Mono';font-weight:600;
+  font-size:.78rem;letter-spacing:.08em;padding:10px 14px;transform:rotate(6deg);
+}
+.menu-link-row{margin-top:clamp(56px,7vw,96px);display:flex;justify-content:center}
+
+/* ============ AFTER DARK — BLACK BLOCK · LAST CALL LIGHT ============ */
+.after-dark{background:#0D0C0B;color:var(--cream);position:relative;overflow:hidden;cursor:default}
+/* the carried light */
+.barlight{
+  position:absolute;left:0;top:0;width:1100px;height:1100px;margin:-550px 0 0 -550px;
+  pointer-events:none;z-index:1;will-change:transform;
+  background:radial-gradient(circle,
+    rgba(255,183,61,.22) 0%,
+    rgba(245,133,36,.13) 22%,
+    rgba(233,75,60,.06) 42%,
+    transparent 68%);
+  mix-blend-mode:screen;
+  filter:blur(2px);
+}
+.barlight::after{
+  content:"";position:absolute;inset:38%;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,236,200,.16) 0%,transparent 70%);
+  animation:candle 3.2s ease-in-out infinite alternate;
+}
+@keyframes candle{from{opacity:.75;transform:scale(.96)}to{opacity:1;transform:scale(1.05)}}
+.after-dark>*:not(.barlight):not(.ghost){position:relative;z-index:2}
+/* dimmed room — photos wake up as light passes (blend does the work) */
+.after-dark .ph img{filter:brightness(.62) saturate(.78);transition:filter .6s var(--ease-enter)}
+.after-dark .ph:hover img{filter:brightness(.95) saturate(1.05) }
+/* neon proximity glow driven by --prox (0..1) from JS */
+.after-dark .mega em{
+  text-shadow:
+    0 0 calc(8px + 26px*var(--prox,0.3)) rgba(255,183,61,calc(.25 + .45*var(--prox,0.3))),
+    0 0 calc(40px + 60px*var(--prox,0.3)) rgba(245,133,36,calc(.12 + .3*var(--prox,0.3)));
+  transition:text-shadow .25s linear;
+}
+/* floating drink polaroid */
+.float-drink{
+  position:fixed;z-index:90;width:210px;aspect-ratio:3/4;pointer-events:none;
+  border:7px solid var(--cream);background:var(--ink);
+  transform:rotate(4deg) scale(.85);opacity:0;
+  transition:opacity .25s var(--ease-enter),transform .35s var(--ease-spring);
+  overflow:hidden;
+}
+.float-drink.show{opacity:1;transform:rotate(4deg) scale(1)}
+.float-drink img{width:100%;height:100%;object-fit:cover}
+.build-line{cursor:crosshair}
+.build-line:hover .n{color:var(--gold)}
+.after-dark .mega{
+  font-family:'Fraunces';font-size:clamp(2.6rem,8vw,7.5rem);line-height:.95;
+  text-transform:uppercase;font-weight:480;letter-spacing:-.015em;
+  font-variation-settings:'SOFT' 70,'WONK' 1;margin-bottom:18px;position:relative;z-index:2;
+}
+.after-dark .mega em{
+  font-style:italic;color:var(--gold);text-transform:none;font-weight:420;
+  text-shadow:0 0 22px rgba(255,183,61,.5),0 0 70px rgba(245,133,36,.28);
+  animation:flicker 7s linear infinite;
+}
+@keyframes flicker{0%,93%,95.5%,100%{opacity:1}94%,95%{opacity:.5}}
+.after-dark .meta-row{
+  font-family:'IBM Plex Mono';font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:clamp(36px,5vw,64px);
+}
+.ad-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,5vw,80px);align-items:start}
+.ad-copy p{color:#cfc6b8;max-width:54ch;font-size:clamp(1rem,.96rem+.3vw,1.15rem)}
+.ad-copy .builds{margin-top:36px;display:grid}
+.build-line{
+  display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:baseline;
+  border-top:1px solid #2e2b27;padding:16px 0;
+}
+.build-line:last-child{border-bottom:1px solid #2e2b27}
+.build-line .n{font-family:'Fraunces';font-style:italic;font-size:clamp(1.2rem,1.1rem+.6vw,1.55rem);color:var(--cream);white-space:nowrap}
+.build-line .b{font-size:.82rem;color:#948c7f}
+.build-line .p{font-family:'IBM Plex Mono';color:var(--gold);font-weight:600}
+.ad-media{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.ad-media .ph{overflow:hidden;aspect-ratio:3/4;border:2px solid #2e2b27}
+.ad-media .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease-enter)}
+.ad-media .ph:hover img{transform:scale(1.05)}
+.ad-media .ph:nth-child(2){transform:translateY(40px) rotate(1.5deg)}
+/* giant ghost word */
+.ghost{
+  position:absolute;right:-2vw;bottom:-1vw;z-index:0;pointer-events:none;
+  font-family:'Fraunces';font-style:italic;font-weight:600;
+  font-size:clamp(8rem,22vw,22rem);line-height:1;color:transparent;
+  -webkit-text-stroke:1px #322e29;user-select:none;
+}
+
+/* ============ PHOTO WALL — CREAM BLOCK ============ */
+.photowall{background:var(--cream);padding-left:0;padding-right:0;overflow:hidden}
+.photowall .pw-head{padding:0 clamp(20px,4vw,64px);margin-bottom:clamp(36px,5vw,64px)}
+.photowall .meta-row{
+  display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;
+  font-family:'IBM Plex Mono';font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brick);
+  margin-bottom:18px;
+}
+.photowall .mega{
+  font-family:'Fraunces';text-transform:uppercase;
+  font-size:clamp(2.6rem,8vw,7.5rem);line-height:.95;letter-spacing:-.015em;font-weight:520;
+  font-variation-settings:'SOFT' 50,'WONK' 1;
+}
+.photowall .mega em{font-style:italic;color:var(--brick);text-transform:none;font-weight:440}
+.rail{display:flex;gap:clamp(14px,2vw,24px);width:max-content;padding:14px 0;animation:railL 70s linear infinite}
+.rail.rev{animation-name:railR;animation-duration:84s}
+@keyframes railL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes railR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.rail figure{
+  width:clamp(200px,23vw,320px);aspect-ratio:4/3;overflow:hidden;flex-shrink:0;
+  border:2px solid var(--ink);background:var(--paper);cursor:zoom-in;
+  transition:transform .35s var(--ease-spring);position:relative;
+}
+.rail figure:nth-child(4n+1){transform:rotate(-1.6deg)}
+.rail figure:nth-child(4n+2){transform:rotate(1.1deg) translateY(8px)}
+.rail figure:nth-child(4n+3){transform:rotate(-.6deg) translateY(-6px)}
+.rail figure:nth-child(4n+4){transform:rotate(1.8deg)}
+.rail figure:hover{transform:rotate(0) scale(1.05);z-index:2;box-shadow:8px 8px 0 var(--gold)}
+.rail figure::after{
+  content:"";position:absolute;top:-7px;left:50%;width:54px;height:16px;margin-left:-27px;
+  background:rgba(255,183,61,.55);transform:rotate(-2deg);/* tape */
+}
+.rail img{width:100%;height:100%;object-fit:cover}
+.pw-foot{
+  padding:0 clamp(20px,4vw,64px);margin-top:clamp(28px,4vw,48px);
+  font-family:'IBM Plex Mono';font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#8a8378;
+}
+/* lightbox */
+.lb{
+  position:fixed;inset:0;background:rgba(20,19,18,.93);z-index:300;
+  display:none;align-items:center;justify-content:center;cursor:zoom-out;
+}
+.lb.open{display:flex}
+.lb img{max-width:88vw;max-height:82vh;border:10px solid var(--cream);object-fit:contain}
+.lb .lb-hint{
+  position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+  font-family:'IBM Plex Mono';font-size:.72rem;letter-spacing:.2em;color:#8a8378;text-transform:uppercase;
+}
+
+/* ============ CONCEPT — GOLD BLOCK ============ */
+.concept-wrap{background:var(--gold)}
+.concept{max-width:1200px;margin:0 auto}
+.concept p.big{
+  font-family:'Fraunces';font-size:clamp(1.7rem,1.2rem+2.6vw,3.4rem);line-height:1.18;font-weight:480;
+  font-variation-settings:'SOFT' 60,'WONK' 0;color:var(--ink);
+}
+.concept p.big em{font-style:italic;color:var(--red-field);font-variation-settings:'SOFT' 100,'WONK' 1}
+.concept .mono-row{
+  display:flex;gap:clamp(18px,4vw,56px);flex-wrap:wrap;
+  margin-top:clamp(32px,4vw,56px);font-family:'IBM Plex Mono';font-size:.82rem;
+  letter-spacing:.18em;text-transform:uppercase;color:#6b5212;
+}
+.concept .mono-row span b{color:var(--ink);font-weight:600}
+
+/* ============ ON THE WALL — CREAM BLOCK ============ */
+.otw{background:var(--cream)}
+.otw-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,5vw,90px);align-items:center}
+.otw-frame{
+  aspect-ratio:4/3;border:3px solid var(--ink);position:relative;
+  display:flex;align-items:center;justify-content:center;background:var(--paper);
+  box-shadow:16px 16px 0 var(--brick);transform:rotate(-1deg);
+}
+.otw-frame .placeholder{text-align:center;font-family:'IBM Plex Mono';font-size:.88rem;letter-spacing:.1em;color:#8a8378;padding:24px;line-height:2}
+.otw-frame .placeholder b{display:block;font-size:1.05rem;color:var(--ink);margin-bottom:10px;letter-spacing:.18em}
+.otw-copy .meta-row{font-family:'IBM Plex Mono';font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brick);margin-bottom:16px}
+.otw-copy h2{
+  font-family:'Fraunces';font-size:clamp(2.2rem,6vw,5rem);font-weight:500;line-height:1;
+  font-variation-settings:'SOFT' 50,'WONK' 1;margin-bottom:22px;text-transform:uppercase;letter-spacing:-.01em;
+}
+.otw-copy h2 em{font-style:italic;color:var(--brick);text-transform:none;font-weight:440}
+.otw-copy p{max-width:54ch;color:#4a4640}
+.otw-copy .btn{margin-top:34px}
+
+/* ============ SIGNUP — RED BLOCK ============ */
+.signup{background:var(--red-field);position:relative;overflow:hidden}
+.signup-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,90px);align-items:center;max-width:1280px;margin:0 auto}
+.signup-copy h2{
+  font-family:'Fraunces';color:var(--cream);font-size:clamp(2.4rem,6.5vw,5.5rem);line-height:.98;
+  font-weight:480;font-variation-settings:'SOFT' 60,'WONK' 1;margin-bottom:24px;
+  text-transform:uppercase;letter-spacing:-.015em;
+}
+.signup-copy h2 em{font-style:italic;color:var(--gold);text-transform:none;font-weight:420}
+.signup-copy p{color:#FFE2C4;max-width:46ch;font-weight:500}
+.receipt{
+  background:#fffdf7;color:var(--ink);max-width:430px;margin:0 auto;width:100%;
+  padding:34px 30px 26px;font-family:'IBM Plex Mono';font-size:.85rem;
+  box-shadow:14px 14px 0 var(--ink);
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 8px),97.5% 100%,95% calc(100% - 8px),92.5% 100%,90% calc(100% - 8px),87.5% 100%,85% calc(100% - 8px),82.5% 100%,80% calc(100% - 8px),77.5% 100%,75% calc(100% - 8px),72.5% 100%,70% calc(100% - 8px),67.5% 100%,65% calc(100% - 8px),62.5% 100%,60% calc(100% - 8px),57.5% 100%,55% calc(100% - 8px),52.5% 100%,50% calc(100% - 8px),47.5% 100%,45% calc(100% - 8px),42.5% 100%,40% calc(100% - 8px),37.5% 100%,35% calc(100% - 8px),32.5% 100%,30% calc(100% - 8px),27.5% 100%,25% calc(100% - 8px),22.5% 100%,20% calc(100% - 8px),17.5% 100%,15% calc(100% - 8px),12.5% 100%,10% calc(100% - 8px),7.5% 100%,5% calc(100% - 8px),2.5% 100%,0 calc(100% - 8px));
+  transform:rotate(1.2deg);
+}
+.receipt .r-head{text-align:center;border-bottom:1px dashed #b9b1a3;padding-bottom:14px;margin-bottom:14px}
+.receipt .r-head .r-title{font-weight:600;letter-spacing:.22em;font-size:1rem}
+.receipt .r-head .r-sub{font-size:.72rem;color:#7d766b;margin-top:4px;letter-spacing:.08em}
+.receipt .r-line{display:flex;justify-content:space-between;padding:3px 0;font-size:.78rem;color:#4a4640}
+.receipt label{font-size:.72rem;letter-spacing:.14em;display:block;margin:14px 0 6px;color:#4a4640}
+.receipt input{
+  width:100%;border:1px dashed #b9b1a3;background:#fffdf7;padding:11px 12px;
+  font-family:'IBM Plex Mono';font-size:.9rem;outline:none;
+}
+.receipt input:focus{border-color:var(--brick);border-style:solid;box-shadow:0 0 0 3px rgba(255,183,61,.4)}
+.receipt button{
+  width:100%;margin-top:18px;padding:14px;border:none;cursor:pointer;
+  background:var(--ink);color:var(--cream);
+  font-family:'IBM Plex Mono';font-weight:600;letter-spacing:.18em;font-size:.85rem;
+  transition:transform .25s var(--ease-spring),box-shadow .25s;
+}
+.receipt button:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--gold)}
+.receipt .barcode{
+  height:42px;margin-top:18px;
+  background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 5px,var(--ink) 5px 6px,transparent 6px 10px,var(--ink) 10px 13px,transparent 13px 16px);
+}
+.receipt .r-foot{text-align:center;font-size:.68rem;letter-spacing:.16em;color:#7d766b;margin-top:10px}
+.receipt .thanks{display:none;text-align:center;padding:18px 0 6px}
+.receipt .thanks .smiley{font-size:2rem;line-height:1}
+.receipt .thanks .ty{letter-spacing:.2em;font-size:.78rem;color:var(--brick);font-weight:600;margin-top:8px}
+.receipt .thanks .no{font-size:1.1rem;font-weight:600;margin-top:10px;letter-spacing:.12em}
+.receipt.done form{display:none}
+.receipt.done .thanks{display:block}
+
+/* ============ FOOTER — INK ============ */
+footer{background:var(--ink);color:var(--cream);padding:clamp(48px,7vw,90px) clamp(20px,4vw,64px) 36px}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:clamp(28px,4vw,64px);margin-bottom:48px}
+.foot-grid h4{font-family:'IBM Plex Mono';font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.foot-grid a{color:#cfc6b8;text-decoration:none;display:block;padding:4px 0;transition:color .2s}
+.foot-grid a:hover{color:var(--gold)}
+.foot-logo{font-family:'Fraunces';font-size:clamp(1.5rem,1.2rem+1.5vw,2.4rem);font-style:italic;font-weight:520;line-height:1.15;max-width:16ch}
+.foot-logo .sub{font-family:'IBM Plex Mono';font-style:normal;font-size:.74rem;letter-spacing:.2em;color:#8a8378;display:block;margin-top:14px;text-transform:uppercase}
+.foot-bottom{
+  border-top:1px solid #2c2925;padding-top:22px;display:flex;justify-content:space-between;
+  gap:18px;flex-wrap:wrap;font-family:'IBM Plex Mono';font-size:.72rem;letter-spacing:.12em;color:#8a8378;
+}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:1100px){
+  .hero-stack{width:clamp(220px,34vw,380px);top:14vh}
+}
+@media(max-width:900px){
+  .hero{padding-top:120px;justify-content:flex-start}
+  .hero-stack{
+    position:relative;right:auto;top:auto;width:min(80vw,400px);
+    margin:8px 0 52px;
+  }
+  .hero-media{transform:rotate(1.5deg)}
+  .hero h1{font-size:clamp(3rem,13vw,6.5rem);max-width:none}
+  .exhibit-grid{grid-template-columns:1fr 1fr}
+  .piece:nth-child(2),.piece:nth-child(3){transform:none}
+  .ad-grid,.otw-grid,.signup-grid{grid-template-columns:1fr}
+  .ad-media .ph:nth-child(2){transform:none}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .nav-links{display:none}
+  .hamburger{display:block}
+  .exhibit-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .receipt{transform:none;box-shadow:8px 8px 0 var(--ink)}
+  .build-line{grid-template-columns:1fr auto}
+  .build-line .b{grid-column:1 / -1}
+}
+/* mobile overlay nav */
+.mobile-nav{
+  position:fixed;inset:0;background:var(--night);z-index:200;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:30px;
+  opacity:0;pointer-events:none;transition:opacity .4s var(--ease-enter);
+}
+.mobile-nav.open{opacity:1;pointer-events:auto}
+.mobile-nav a{
+  font-family:'Fraunces';font-size:2.2rem;font-style:italic;color:var(--gold);text-decoration:none;
+  transform:translateY(20px);opacity:0;transition:transform .5s var(--ease-enter),opacity .5s;
+}
+.mobile-nav.open a{transform:none;opacity:1}
+.mobile-nav.open a:nth-child(2){transition-delay:.07s}
+.mobile-nav.open a:nth-child(3){transition-delay:.14s}
+.mobile-nav.open a:nth-child(4){transition-delay:.21s}
+.mobile-nav.open a:nth-child(5){transition-delay:.28s}
+.mobile-nav .close{position:absolute;top:24px;right:24px;background:none;border:none;color:var(--cream);font-family:'IBM Plex Mono';font-size:.9rem;letter-spacing:.14em;cursor:pointer}
+
+@media(max-width:900px){
+  .ghostword-hero{font-size:42vw;top:2%}
+  .blob{filter:blur(60px)}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .ticker-track{animation:none}
+  .gate{display:none}
+  .blob,.ghostword-hero,.sweep{animation:none}
+  .rail{animation:none;overflow-x:auto;width:100%}
+  .barlight,.float-drink{display:none}
+  .after-dark .ph img{filter:none}
+  .hero h1 .line>span{transform:none}
+  .hero-sub,.hero-ctas{opacity:1}
+  .hero-drink{opacity:1;animation:none}
+  .rv{opacity:1;transform:none}
+}
+</style>
+<link rel="preload" as="image" href="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/80a5b2a5-3289-49f8-ade4-91d2d08830ef/baconeggchz?format=1500w" fetchpriority="high">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Restaurant",
+  "name":"Bodega Bar ATL",
+  "servesCuisine":["American","New American","Cocktail Bar"],
+  "address":{"@type":"PostalAddress","streetAddress":"1085 Katherwood Dr SW","addressLocality":"Atlanta","addressRegion":"GA","postalCode":"30310"},
+  "telephone":"+14702468872",
+  "email":"info@bodegabaratl.com",
+  "url":"https://www.bodegabaratl.com",
+  "sameAs":["https://instagram.com/bodegabaratl"]
+}
+</script>
+<link rel="stylesheet" href="fx.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="index.html" aria-label="Bodega Bar ATL home">
+    <img src="assets/BodegaBar_Logo.png" alt="Bodega Bar">
+  </a>
+  <ul class="nav-links">
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="#on-the-wall">On the Wall</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a class="cta" href="#list">Get on the List</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">Menu ＋</button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <button class="close" id="navClose">Close ✕</button>
+  <a href="index.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="about.html">About</a>
+  <a href="#on-the-wall">On the Wall</a>
+  <a href="contact.html">Contact</a>
+  <a href="#list">Get on the List</a>
+</div>
+
+<!-- HERO — RED FIELD -->
+<header class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="blob b1" data-depth="14"></div>
+    <div class="blob b2" data-depth="22"></div>
+    <div class="blob b3" data-depth="9"></div>
+    <span class="ghostword-hero">BODEGA&nbsp;BAR&nbsp;★&nbsp;BODEGA&nbsp;BAR&nbsp;★&nbsp;</span>
+    <div class="sweep"></div>
+  </div>
+  <div class="hero-stack">
+    <div class="hero-media" aria-hidden="false">
+      <div class="gate" aria-hidden="true"></div>
+      <img src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/80a5b2a5-3289-49f8-ade4-91d2d08830ef/baconeggchz?format=1500w" alt="Bacon egg and cheese on a roll — Bodega Bar ATL" fetchpriority="high">
+    </div>
+    <div class="hero-drink" aria-hidden="false">
+      <img src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/c1defde0-9da6-4bd4-aa24-4d5e963025cd/pretty+cocktail.jpeg?format=800w" alt="Signature cocktail — Bodega Bar ATL">
+    </div>
+  </div>
+  <div>
+    <span class="kicker">Coming soon — Sylvan Hills, Atlanta</span>
+    <h1>
+      <span class="line"><span>A taste of</span></span>
+      <span class="line"><span><em>New York,</em></span></span>
+      <span class="line"><span>corner of</span></span>
+      <span class="line"><span><em>Atlanta.</em></span></span>
+    </h1>
+    <p class="hero-sub">NYC-inspired cuisine &amp; art, cutting-edge cocktails, and the kind of hospitality that remembers your order.</p>
+    <p class="hero-addr">1085 KATHERWOOD DR SW · ATLANTA, GA 30310</p>
+  </div>
+  <div class="hero-bottom">
+    <div class="hero-ctas">
+      <a class="btn btn-gold" href="#list">Get on the List</a>
+      <a class="btn btn-line" href="menu.html">Peep the Menu</a>
+    </div>
+  </div>
+</header>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="tickerTrack">
+    <span> CHOPPED CHEESE <span class="star">★</span> LOX RANGOONS <span class="star">★</span> BING BONG <span class="star">★</span> NY HOT DOG <span class="star">★</span> PEKING DUCK <span class="star">★</span> SPELLBOUND TO HMART <span class="star">★</span> CHICKEN SCHWARMA <span class="star">★</span> ROTATING HOUSE PUNCH <span class="star">★</span> NY CHEESECAKE <span class="star">★</span> GOLDIE <span class="star">★</span> REUBEN <span class="star">★</span> LUNA PARK AFTER DARK <span class="star">★</span></span>
+  </div>
+</div>
+
+<!-- KITCHEN — CREAM BLOCK -->
+<section class="kitchen" id="menu">
+  <div class="meta-row rv">
+    <span>№ 01 — CUISINE</span>
+    <span>HUNG FRESH DAILY</span>
+  </div>
+  <h2 class="mega rv">Now showing: <em>the kitchen.</em></h2>
+  <div class="exhibit-grid">
+    <article class="piece rv">
+      <span class="sticker">HANDHELDS</span>
+      <div class="frame">
+        <img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/a9692d8e-fc87-4bef-9437-82ae721a38d0/choppy+chz.jpeg?format=1000w" alt="Chopped cheese sandwich">
+      </div>
+      <div class="wall-label">
+        <h3>Chopped Cheese, 2026</h3>
+        <p class="medium">Grass-fed beef, fontina chz sauce, spicy mayo, LTO, italian bread</p>
+        <p class="price"><span>$16</span><span>№ 014</span></p>
+      </div>
+    </article>
+    <article class="piece rv d1">
+      <span class="sticker">SMALL PLATES</span>
+      <div class="frame">
+        <img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/000c1f67-cd87-4063-826f-f07f5aed90b8/rangoons.jpeg?format=1000w" alt="Lox rangoons">
+      </div>
+      <div class="wall-label">
+        <h3>Lox Rangoons, 2026</h3>
+        <p class="medium">Cold smoked salmon, cream cheese, red onion, tomato caper jam, fresh dill</p>
+        <p class="price"><span>$13</span><span>№ 002</span></p>
+      </div>
+    </article>
+    <article class="piece rv d2">
+      <span class="sticker">MAINS</span>
+      <div class="frame">
+        <img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/ea2a7ffa-1d20-4f3c-89c1-148cabb93135/schwarma.jpeg?format=1000w" alt="Chicken schwarma plate">
+      </div>
+      <div class="wall-label">
+        <h3>Chicken Schwarma, 2026</h3>
+        <p class="medium">Marinated grilled chicken thigh, yellow rice, LTO, tzatziki, hot sauce</p>
+        <p class="price"><span>$19</span><span>№ 009</span></p>
+      </div>
+    </article>
+  </div>
+  <div class="menu-link-row rv">
+    <a class="btn btn-ink" href="menu.html">See the Full Menu →</a>
+  </div>
+</section>
+
+<!-- AFTER DARK — BLACK BLOCK -->
+<section class="after-dark" id="after-dark">
+  <div class="barlight" id="barlight" aria-hidden="true"></div>
+  <span class="ghost" aria-hidden="true">glow</span>
+  <div class="meta-row rv">№ 02 — LIBATIONS</div>
+  <h2 class="mega rv">After dark, <em>the bar glows.</em></h2>
+  <div class="ad-grid">
+    <div class="ad-copy rv">
+      <p>Cutting-edge is not a figure of speech. Clarified milk punch with Fruity Pebble cereal milk. Taro-milk gin with yuzu and ginger tea. Apple-infused clairin under a cinnamon mezcal foam. Cocktails built like dishes, named like New York.</p>
+      <div class="builds">
+        <div class="build-line" data-img="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/02ab3f97-54d0-4c60-a961-d067dd0e699a/strawberry+drank.jpeg?format=600w"><span class="n">Bing Bong</span><span class="b">clarified milk punch · Cazadores Reposado · Fruity Pebble cereal milk</span><span class="p">14</span></div>
+        <div class="build-line" data-img="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/ef213f24-e19b-4239-8167-2064731ad052/sippy+sip.jpeg?format=600w"><span class="n">Spellbound to HMart</span><span class="b">Tulsi gin · taro milk · yuzu · ginger tea · bitters</span><span class="p">14</span></div>
+        <div class="build-line" data-img="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/275bd1ed-f67c-4073-8a64-ec7059c4788f/coffee+grounds.jpeg?format=600w"><span class="n">Party on Fifth Ave</span><span class="b">Taconic bourbon · port · Cappalletti · orange bitters</span><span class="p">13</span></div>
+        <div class="build-line" data-img="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/03423200-d041-4ac2-973c-db6a72b4fb2c/Luna+park.jpeg?format=600w"><span class="n">Luna Park After Dark</span><span class="b">21 Blanco · carrot · lime · grape soda</span><span class="p">12</span></div>
+      </div>
+    </div>
+    <div class="ad-media rv d1">
+      <div class="ph"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/c1defde0-9da6-4bd4-aa24-4d5e963025cd/pretty+cocktail.jpeg?format=1000w" alt="Cocktail portrait"></div>
+      <div class="ph"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/02ab3f97-54d0-4c60-a961-d067dd0e699a/strawberry+drank.jpeg?format=1000w" alt="Strawberry cocktail"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO WALL — CREAM BLOCK -->
+<section class="photowall" id="wall">
+  <div class="pw-head rv">
+    <div class="meta-row"><span>№ 03 — SCENES</span><span>TAPED UP BEHIND THE COUNTER</span></div>
+    <h2 class="mega">Scenes from <em>the corner.</em></h2>
+  </div>
+  <div class="rail" aria-label="Photo wall — food, drinks and the crew">
+    <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/fe21d468-843d-4618-a9c1-c0973b5a7f50/REL04761-2.jpeg?format=800w" alt="Bodega Bar dish"></figure>
+    <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/c1defde0-9da6-4bd4-aa24-4d5e963025cd/pretty+cocktail.jpeg?format=800w" alt="Cocktail"></figure>
+    <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/a4ec0807-ba7e-4a44-bd5d-d9a40db4d4a5/REL04785.jpeg?format=800w" alt="Plated dish"></figure>
+    <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/8ccd530b-9c9f-44ef-b8e6-2e6a29f0e73b/hector+blackstone.jpeg?format=800w" alt="Chef Hector on the flat top"></figure>
+    <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/7338995e-9cc5-419c-9065-c7640ddba1fb/yolk+sandwich.jpeg?format=800w" alt="Egg yolk sandwich"></figure>
+    <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/02ab3f97-54d0-4c60-a961-d067dd0e699a/strawberry+drank.jpeg?format=800w" alt="Strawberry cocktail"></figure>
+    <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/4b64c8b6-9c90-4ff2-86a8-fd1c1fb31424/REL04755.jpeg?format=800w" alt="Bodega Bar plate"></figure>
+    <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/5c946454-8560-4ce0-bca8-7f08d58ba309/dogs.png?format=800w" alt="NY hot dogs"></figure>
+    <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/03423200-d041-4ac2-973c-db6a72b4fb2c/Luna+park.jpeg?format=800w" alt="Luna Park cocktail"></figure>
+    <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/be2b522d-cc6d-4a60-998f-19574e96dcb2/REL04784.jpeg?format=800w" alt="Kitchen plate"></figure>
+  </div>
+  <div class="rail rev" aria-hidden="true">
+    <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/275bd1ed-f67c-4073-8a64-ec7059c4788f/coffee+grounds.jpeg?format=800w" alt="Coffee"></figure>
+    <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/fa04e6ea-43d9-4549-bf69-ddb5acb06e90/REL04748-2.jpeg?format=800w" alt="Dish detail"></figure>
+    <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/c5a23262-77ef-42c9-9149-ab3936a2692a/chopt+chz.jpeg?format=800w" alt="Chopped cheese on the griddle"></figure>
+    <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/dfc0ff36-41b1-41f6-9cf8-27d93ea05891/falafel.jpeg?format=800w" alt="Falafel"></figure>
+    <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/f65bb847-6084-487d-a075-46cb2d81fe26/DSC01327.JPEG?format=800w" alt="Bar scene"></figure>
+    <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/cad50c96-01f3-4eec-9ab9-ed5c91353a3a/REL04765.jpeg?format=800w" alt="Plated dish"></figure>
+    <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/8a3a5943-0b95-4c6f-9e30-949b6d593c11/pleasure+2+serve.jpeg?format=800w" alt="Service with pride"></figure>
+    <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/a7bf2e8c-eccf-4697-9d33-b9192a3158bc/c+n+a.jpeg?format=800w" alt="Cocktails and appetizers"></figure>
+    <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/f614c593-6ebf-4604-a528-a4985395ac8c/top+it+off.jpeg?format=800w" alt="Topping off a cocktail"></figure>
+    <figure><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/ea2a7ffa-1d20-4f3c-89c1-148cabb93135/schwarma.jpeg?format=800w" alt="Schwarma plate"></figure>
+  </div>
+  <p class="pw-foot rv">CLICK ANY SHOT TO BLOW IT UP</p>
+</section>
+
+<!-- FLOATING DRINK POLAROID -->
+<div class="float-drink" id="floatDrink" aria-hidden="true"><img id="floatDrinkImg" src="" alt=""></div>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lightbox" role="dialog" aria-label="Enlarged photo">
+  <img id="lbImg" src="" alt="">
+  <span class="lb-hint">CLICK ANYWHERE OR PRESS ESC TO CLOSE</span>
+</div>
+
+<!-- CONCEPT — GOLD BLOCK -->
+<section class="concept-wrap">
+  <div class="concept rv">
+    <p class="big">The concept of Bodega Bar intertwines <em>NYC-inspired cuisine &amp; art</em>, <em>cutting-edge cocktails</em>, and <em>exceptional hospitality</em> — translated to Atlanta with intention.</p>
+    <div class="mono-row">
+      <span><b>NYC</b> LEADS</span>
+      <span><b>ATL</b> GROUNDS IT</span>
+      <span><b>SYLVAN HILLS</b> HOSTS IT</span>
+    </div>
+  </div>
+</section>
+
+<!-- ON THE WALL — CREAM BLOCK -->
+<section class="otw" id="on-the-wall">
+  <div class="otw-grid">
+    <div class="otw-frame rv">
+      <div class="placeholder">
+        <b>ON THE WALL — № 001</b>
+        Now booking the first show.<br>Rotating works by Atlanta artists,<br>hung where the chips used to be.
+      </div>
+    </div>
+    <div class="otw-copy rv d1">
+      <div class="meta-row">№ 04 — ART</div>
+      <h2>The walls are <em>part of the menu.</em></h2>
+      <p>Every few months, a local artist takes over the bar — murals, prints, photography. Atlanta has one of the strongest street-art lineages in the country, and this corner intends to hang it. Cuisine &amp; art, intertwined — not a tagline, a rotation.</p>
+      <a class="btn btn-ink" href="mailto:info@bodegabaratl.com?subject=On%20the%20Wall%20—%20Artist%20Submission">Call for Artists — Submit Work</a>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNUP — RED BLOCK -->
+<section class="signup" id="list">
+  <div class="signup-grid">
+    <div class="signup-copy rv">
+      <h2>The gate goes up <em>soon.</em></h2>
+      <p>First look at the opening date, the soft-open guest list, and what the kitchen's been testing. No spam — bodega rules: we only holler when it matters.</p>
+    </div>
+    <div class="receipt rv d1" id="receipt">
+      <div class="r-head">
+        <div class="r-title">BODEGA BAR ATL</div>
+        <div class="r-sub">1085 KATHERWOOD DR SW · ATLANTA GA<br>★ CUSTOMER COPY ★</div>
+      </div>
+      <div class="r-line"><span>ITEM</span><span>QTY</span></div>
+      <div class="r-line"><span>SOFT-OPEN GUEST LIST</span><span>x1</span></div>
+      <div class="r-line"><span>OPENING DATE NEWS</span><span>x1</span></div>
+      <div class="r-line"><span>REGRETS</span><span>x0</span></div>
+      <form id="listForm">
+        <label for="em">YOUR EMAIL</label>
+        <input id="em" type="email" required placeholder="you@example.com" autocomplete="email">
+        <label for="ph2">CELL (OPTIONAL — SMS DROPS)</label>
+        <input id="ph2" type="tel" placeholder="(404) 000-0000" autocomplete="tel">
+        <button type="submit">PRINT MY RECEIPT →</button>
+      </form>
+      <div class="thanks">
+        <div class="smiley">☺</div>
+        <div class="ty">THANK YOU THANK YOU THANK YOU</div>
+        <div class="no" id="ticketNo">YOU'RE ON THE LIST · № 0000</div>
+      </div>
+      <div class="barcode" aria-hidden="true"></div>
+      <div class="r-foot">HAVE A NICE DAY · COME BACK SOON</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER — INK -->
+<footer id="visit">
+  <div class="foot-grid">
+    <div>
+      <p class="foot-logo">Street outside, gallery light inside.
+        <span class="sub">Bodega Bar ATL — Sylvan Hills</span>
+      </p>
+    </div>
+    <div>
+      <h4>Visit</h4>
+      <a href="https://maps.google.com/?q=1085+Katherwood+Dr+SW+Atlanta+GA+30310" target="_blank" rel="noopener">1085 Katherwood Dr SW<br>Atlanta, GA 30310</a>
+      <a href="tel:+14702468872">(470) 246-8872</a>
+      <a href="mailto:info@bodegabaratl.com">info@bodegabaratl.com</a>
+    </div>
+    <div>
+      <h4>Follow</h4>
+      <a href="https://instagram.com/bodegabaratl" target="_blank" rel="noopener">Instagram — @bodegabaratl</a>
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="index.html#list">Get on the List</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 BODEGA BAR ATL</span>
+    <span>OPEN LATE · SOON</span>
+  </div>
+</footer>
+
+<script>
+// nav scroll state
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>60)},{passive:true});
+
+// mobile nav
+const mnav=document.getElementById('mobileNav');
+document.getElementById('hamburger').addEventListener('click',()=>mnav.classList.add('open'));
+document.getElementById('navClose').addEventListener('click',()=>mnav.classList.remove('open'));
+mnav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mnav.classList.remove('open')));
+
+// duplicate ticker content for seamless loop
+const tt=document.getElementById('tickerTrack');
+tt.innerHTML+=tt.innerHTML;
+
+// duplicate photo rails for seamless loop
+document.querySelectorAll('.rail').forEach(r=>{r.innerHTML+=r.innerHTML});
+
+// lightbox
+const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg');
+document.querySelector('.photowall').addEventListener('click',e=>{
+  const img=e.target.closest('figure img');
+  if(!img)return;
+  lbImg.src=img.src.replace('format=800w','format=1500w');
+  lbImg.alt=img.alt;
+  lb.classList.add('open');
+});
+lb.addEventListener('click',()=>lb.classList.remove('open'));
+addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('open')});
+
+// scroll reveals
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// hero parallax — the wall responds to your hand (desktop, motion-ok only)
+const blobs=[...document.querySelectorAll('.blob')];
+const motionOK=!matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(motionOK && matchMedia('(pointer:fine)').matches){
+  let tx=0,ty=0,cx=0,cy=0;
+  addEventListener('pointermove',e=>{
+    tx=(e.clientX/innerWidth-.5);ty=(e.clientY/innerHeight-.5);
+  },{passive:true});
+  (function loop(){
+    cx+=(tx-cx)*.04;cy+=(ty-cy)*.04;
+    blobs.forEach(b=>{
+      const d=+b.dataset.depth;
+      b.style.translate=`${cx*d}px ${cy*d}px`;
+    });
+    requestAnimationFrame(loop);
+  })();
+}
+
+// —— LAST CALL LIGHT (after dark section) ——
+const ad=document.querySelector('.after-dark');
+const light=document.getElementById('barlight');
+const megaEm=ad.querySelector('.mega em');
+if(motionOK){
+  let lx=0,ly=0,tx2=0,ty2=0,hasPointer=false,t0=performance.now();
+  ad.addEventListener('pointermove',e=>{
+    const r=ad.getBoundingClientRect();
+    tx2=e.clientX-r.left;ty2=e.clientY-r.top;hasPointer=true;
+  },{passive:true});
+  ad.addEventListener('pointerleave',()=>{hasPointer=false});
+  (function lamp(now){
+    const r=ad.getBoundingClientRect();
+    if(!hasPointer){ // the candle wanders on its own
+      const t=(now-t0);
+      tx2=r.width*(0.5+0.38*Math.sin(t*0.00021));
+      ty2=r.height*(0.5+0.32*Math.sin(t*0.00013+1.7));
+    }
+    lx+=(tx2-lx)*.06;ly+=(ty2-ly)*.06;
+    light.style.transform=`translate(${lx}px,${ly}px)`;
+    // neon burns brighter as the light approaches
+    if(megaEm){
+      const er=megaEm.getBoundingClientRect();
+      const ex=er.left-r.left+er.width/2, ey=er.top-r.top+er.height/2;
+      const d=Math.hypot(lx-ex,ly-ey);
+      ad.style.setProperty('--prox',Math.max(0,Math.min(1,1-d/560)).toFixed(3));
+    }
+    requestAnimationFrame(lamp);
+  })(t0);
+}
+
+// —— floating drink polaroid on cocktail hover (desktop) ——
+const fd=document.getElementById('floatDrink'),fdImg=document.getElementById('floatDrinkImg');
+if(matchMedia('(pointer:fine)').matches){
+  document.querySelectorAll('.build-line[data-img]').forEach(line=>{
+    line.addEventListener('mouseenter',()=>{fdImg.src=line.dataset.img;fd.classList.add('show')});
+    line.addEventListener('mouseleave',()=>fd.classList.remove('show'));
+    line.addEventListener('mousemove',e=>{
+      fd.style.left=(e.clientX+28)+'px';
+      fd.style.top=(e.clientY-150)+'px';
+    });
+  });
+}
+
+// receipt
+document.getElementById('listForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const n=String(Math.floor(Math.random()*9000)+100).padStart(4,'0');
+  document.getElementById('ticketNo').textContent="YOU'RE ON THE LIST · № "+n;
+  document.getElementById('receipt').classList.add('done');
+});
+</script>
+<script src="fx.js" defer></script>
+</body>
+</html>
