@@ -475,6 +475,12 @@
     var mob = document.getElementById('mobileNav');
     if (mob) mob.appendChild(makeBtn('bb-lang-mobile'));
 
+    /* always-visible toggle in the top bar for mobile (sits next to the hamburger,
+       so it's reachable without opening the menu) */
+    var navEl = document.querySelector('nav');
+    var ham = document.getElementById('hamburger');
+    if (navEl && ham) navEl.insertBefore(makeBtn('bb-lang-bar'), ham);
+
     var css =
       /* lift the whole nav (and our toggle) above the full-screen grain overlay (z-index:9999) */
       '#nav{z-index:10000 !important}' +
@@ -485,7 +491,10 @@
       '.bb-lang:hover{background:#F58524;transform:translate(-1px,-1px);box-shadow:3px 3px 0 #1A1A1A}' +
       '.bb-lang:active{transform:translate(1px,1px);box-shadow:1px 1px 0 #1A1A1A}' +
       '.nav-links .bb-lang-li{display:flex;align-items:center;margin-left:4px}' +
-      '.bb-lang-mobile{margin-top:30px;align-self:center;font-size:16px;padding:11px 24px;box-shadow:3px 3px 0 #1A1A1A}';
+      '.bb-lang-mobile{margin-top:30px;align-self:center;font-size:16px;padding:11px 24px;box-shadow:3px 3px 0 #1A1A1A}' +
+      /* the top-bar toggle is mobile-only; desktop uses the nav-links one */
+      '.bb-lang-bar{display:none}' +
+      '@media(max-width:640px){.bb-lang-bar{display:inline-flex;margin-left:auto;margin-right:14px;font-size:13px;padding:8px 14px}}';
     var st = document.createElement('style');
     st.appendChild(document.createTextNode(css));
     document.head.appendChild(st);
