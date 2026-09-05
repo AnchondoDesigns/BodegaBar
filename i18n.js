@@ -33,6 +33,7 @@
     "On the Wall": "En la Pared",
     "Contact": "Contacto",
     "Get on the List": "Únete a la Lista",
+    "Join the Crew": "Únete al Equipo",
     "Home": "Inicio",
     "Menu ＋": "Menú ＋",
     "Close ✕": "Cerrar ✕",
