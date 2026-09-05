@@ -9,7 +9,7 @@
 <meta property="og:site_name" content="Bodega Bar ATL">
 <meta property="og:title" content="Contact — Bodega Bar ATL | Ring the Bell">
 <meta property="og:description" content="General, press, private events, artist submissions. 1085 Katherwood Dr SW, Sylvan Hills, Atlanta.">
-<meta property="og:url" content="https://www.bodegabaratl.com/contact">
+<meta property="og:url" content="https://www.bodegabar-atl.com/contact">
 <meta property="og:image" content="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/80a5b2a5-3289-49f8-ade4-91d2d08830ef/baconeggchz?format=1500w">
 <meta name="twitter:card" content="summary_large_image">
 <title>Contact — Bodega Bar ATL | Ring the Bell</title>
@@ -510,7 +510,7 @@ footer{background:var(--ink);color:var(--cream);padding:clamp(48px,7vw,90px) cla
       <div class="drow"><span class="k">Address</span><span class="v"><a href="https://maps.google.com/?q=1085+Katherwood+Dr+SW+Atlanta+GA+30310" target="_blank" rel="noopener">1085 Katherwood Dr SW<br>Atlanta, GA 30310</a></span></div>
       <div class="drow"><span class="k">Hood</span><span class="v">Sylvan Hills — SW Atlanta</span></div>
       <div class="drow"><span class="k">Phone</span><span class="v"><a href="tel:+14702468872">(470) 246-8872</a></span></div>
-      <div class="drow"><span class="k">Email</span><span class="v"><a href="mailto:info@bodegabaratl.com">info@bodegabaratl.com</a></span></div>
+      <div class="drow"><span class="k">Email</span><span class="v"><a href="mailto:contact@atlbodegabar.com">contact@atlbodegabar.com</a></span></div>
       <div class="drow"><span class="k">IG</span><span class="v"><a href="https://instagram.com/bodegabaratl" target="_blank" rel="noopener">@bodegabaratl</a></span></div>
       <div class="drow"><span class="k">Hours</span><span class="v"><span class="soon">Opening 2026 — watch the gate.</span></span></div>
       <a class="dbtn" href="https://maps.google.com/?q=1085+Katherwood+Dr+SW+Atlanta+GA+30310" target="_blank" rel="noopener">GET DIRECTIONS →</a>
@@ -537,7 +537,7 @@ footer{background:var(--ink);color:var(--cream);padding:clamp(48px,7vw,90px) cla
       <h4>Visit</h4>
       <a href="https://maps.google.com/?q=1085+Katherwood+Dr+SW+Atlanta+GA+30310" target="_blank" rel="noopener">1085 Katherwood Dr SW<br>Atlanta, GA 30310</a>
       <a href="tel:+14702468872">(470) 246-8872</a>
-      <a href="mailto:info@bodegabaratl.com">info@bodegabaratl.com</a>
+      <a href="mailto:contact@atlbodegabar.com">contact@atlbodegabar.com</a>
     </div>
     <div>
       <h4>Follow</h4>
@@ -609,11 +609,20 @@ document.querySelectorAll('.buzzer').forEach(bz=>{
   });
 });
 
-ticket.addEventListener('submit',e=>{
+ticket.addEventListener('submit',async e=>{
   e.preventDefault();
   if(!ticket.reportValidity())return;
-  ticket.classList.add('done');
-  stamp.classList.add('hit');
+  const btn=document.getElementById('tSubmit');const old=btn.textContent;btn.disabled=true;btn.textContent='SENDING…';
+  const active=document.querySelector('.buzzer.active');const topic=active?active.dataset.topic:'general';
+  const extras={};extra.querySelectorAll('input').forEach(i=>{const l=extra.querySelector('label[for="'+i.id+'"]');extras[l?l.textContent:i.id]=i.value});
+  try{
+    const r=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:document.getElementById('f-name').value,email:document.getElementById('f-email').value,message:document.getElementById('f-msg').value,topic,extras})});
+    const j=await r.json().catch(()=>({}));if(!r.ok||!j.ok)throw new Error(j.error||'fail');
+    ticket.classList.add('done');stamp.classList.add('hit');
+  }catch(x){
+    btn.disabled=false;btn.textContent=old;
+    alert("Something jammed on our end. Email us directly at contact@atlbodegabar.com");
+  }
 });
 </script>
 <script src="fx.js" defer></script>
