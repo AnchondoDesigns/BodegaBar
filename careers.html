@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0D0C0B">
+<link rel="icon" type="image/png" href="assets/BodegaBar_Logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bodega Bar ATL">
+<meta property="og:title" content="Join the Crew — Bodega Bar ATL | Now Hiring">
+<meta property="og:description" content="Bartenders, servers, cooks, hosts, door. Neighborhood bar, NYC energy, real hospitality. Apply in 5 minutes.">
+<meta property="og:url" content="https://www.bodegabaratl.com/careers">
+<meta property="og:image" content="https://images.squarespace-cdn.com/content/v1/67f061114f16a12b05542381/80a5b2a5-3289-49f8-ade4-91d2d08830ef/baconeggchz?format=1500w">
+<meta name="twitter:card" content="summary_large_image">
+<title>Join the Crew — Bodega Bar ATL | Now Hiring</title>
+<meta name="description" content="Bodega Bar ATL is hiring its opening crew in Sylvan Hills, Atlanta — bartenders, barbacks, servers, hosts, line cooks, prep cooks, dishwashers, security. Apply online in 5 minutes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&family=Archivo:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FFF4E2;
+  --paper:#FBF3E4;
+  --brick:#E94B3C;
+  --red-field:#D8402F;
+  --orange:#F58524;
+  --gold:#FFB73D;
+  --ink:#1A1A1A;
+  --night:#0D0C0B;
+  --ease-enter:cubic-bezier(.22,1,.36,1);
+  --ease-cinematic:cubic-bezier(.83,0,.17,1);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+@view-transition{navigation:auto}
+body{
+  background:var(--cream);color:var(--ink);
+  font-family:'Archivo',sans-serif;
+  font-size:clamp(1rem,.95rem + .3vw,1.125rem);line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+::selection{background:var(--gold);color:var(--ink)}
+img{max-width:100%;display:block}
+a{color:inherit}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.06;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ===== NAV ===== */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px clamp(20px,4vw,64px);
+  transition:background .4s var(--ease-enter),padding .4s;
+}
+nav.scrolled{background:var(--ink);padding:8px clamp(20px,4vw,64px)}
+.nav-logo img{height:92px;width:auto;transition:height .4s}
+nav.scrolled .nav-logo img{height:58px}
+.nav-links{display:flex;align-items:center;gap:clamp(14px,2.6vw,36px);list-style:none}
+.nav-links a{
+  text-decoration:none;font-weight:600;font-size:.88rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--cream);position:relative;
+}
+.nav-links a:not(.cta)::after{
+  content:"";position:absolute;left:0;bottom:-5px;height:2px;width:0;
+  background:var(--gold);transition:width .3s var(--ease-enter);
+}
+.nav-links a:not(.cta):hover::after{width:100%}
+.cta{background:var(--gold);color:var(--ink)!important;padding:11px 22px;font-weight:700;transition:transform .25s var(--ease-spring)}
+.cta:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--cream)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;font-family:'IBM Plex Mono';font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream)}
+.mobile-nav{
+  position:fixed;inset:0;background:var(--night);z-index:200;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:30px;opacity:0;pointer-events:none;transition:opacity .4s var(--ease-enter);
+}
+.mobile-nav.open{opacity:1;pointer-events:auto}
+.mobile-nav a{font-family:'Fraunces';font-size:2.2rem;font-style:italic;color:var(--gold);text-decoration:none}
+.mobile-nav .close{position:absolute;top:24px;right:24px;background:none;border:none;color:var(--cream);font-family:'IBM Plex Mono';font-size:.9rem;letter-spacing:.14em;cursor:pointer}
+footer{background:var(--ink);color:var(--cream);padding:clamp(48px,7vw,90px) clamp(20px,4vw,64px) 36px}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:clamp(28px,4vw,64px);margin-bottom:48px}
+.foot-grid h4{font-family:'IBM Plex Mono';font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.foot-grid a{color:#cfc6b8;text-decoration:none;display:block;padding:4px 0;transition:color .2s}
+.foot-grid a:hover{color:var(--gold)}
+.foot-logo{font-family:'Fraunces';font-size:clamp(1.5rem,1.2rem+1.5vw,2.4rem);font-style:italic;font-weight:520;line-height:1.15;max-width:16ch}
+.foot-logo .sub{font-family:'IBM Plex Mono';font-style:normal;font-size:.74rem;letter-spacing:.2em;color:#8a8378;display:block;margin-top:14px;text-transform:uppercase}
+.foot-bottom{
+  border-top:1px solid #2c2925;padding-top:22px;display:flex;justify-content:space-between;
+  gap:18px;flex-wrap:wrap;font-family:'IBM Plex Mono';font-size:.72rem;letter-spacing:.12em;color:#8a8378;
+}
+
+
+/* ===== HERO ===== */
+.chero{
+  min-height:58svh;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:150px clamp(20px,4vw,64px) clamp(40px,6vh,72px);
+  color:var(--cream);
+  background:linear-gradient(180deg,#0D0C0B 0%,#0D0C0B 12%,#571E14 42%,var(--red-field) 70%);
+}
+.chero .kicker{font-family:'IBM Plex Mono';font-size:clamp(.78rem,.75rem+.2vw,.9rem);letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:20px}
+.chero h1{font-family:'Fraunces';font-size:clamp(3rem,9.5vw,9.5rem);line-height:.94;letter-spacing:-.02em;font-weight:500;text-transform:uppercase;font-variation-settings:'SOFT' 50,'WONK' 1,'opsz' 144}
+.chero h1 em{font-style:italic;color:var(--gold);text-transform:none;font-weight:440}
+.chero p{max-width:52ch;margin-top:22px;font-size:1.05rem;color:#f3e6d0}
+.chero .ghostword{
+  position:absolute;left:0;top:18%;white-space:nowrap;font-size:clamp(9rem,26vw,24rem);
+  font-family:'Archivo';font-weight:700;text-transform:uppercase;color:rgba(255,244,226,.045);
+  user-select:none;animation:ghostcrawl 130s linear infinite;pointer-events:none;line-height:1;
+}
+@keyframes ghostcrawl{from{transform:translateX(2%)}to{transform:translateX(-52%)}}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease-enter),transform .7s var(--ease-enter)}
+.rv.in{opacity:1;transform:none}
+
+/* ===== ROLES BOARD (deli-counter menu) ===== */
+.roles{padding:clamp(56px,8vw,110px) clamp(20px,4vw,64px);background:var(--ink);color:var(--cream)}
+.eyebrow{font-family:'IBM Plex Mono';font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+h2.mega{font-family:'Fraunces';text-transform:uppercase;font-size:clamp(2.2rem,5.2vw,4.6rem);line-height:.96;letter-spacing:-.015em;font-weight:520;font-variation-settings:'SOFT' 50,'WONK' 1;margin-bottom:34px}
+h2.mega em{font-style:italic;color:var(--gold);text-transform:none;font-weight:440}
+.board{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.slot{
+  border:1px solid #2e2b27;padding:22px 20px 18px;position:relative;cursor:pointer;
+  background:#151412;transition:transform .25s var(--ease-spring),border-color .25s,background .25s;
+}
+.slot:hover,.slot:focus-visible{transform:translate(-3px,-3px);border-color:var(--gold);background:#1c1a17;outline:none}
+.slot .num{font-family:'IBM Plex Mono';font-size:.7rem;letter-spacing:.18em;color:#8a8378}
+.slot h3{font-family:'Fraunces';font-size:1.55rem;font-weight:520;margin:6px 0 8px;text-transform:uppercase;letter-spacing:-.01em}
+.slot p{font-size:.9rem;color:#cfc6b8;line-height:1.5}
+.slot .tag{position:absolute;top:14px;right:14px;font-family:'IBM Plex Mono';font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;background:var(--gold);color:var(--ink);padding:4px 8px}
+.slot .tag.boh{background:var(--brick);color:var(--cream)}
+.slot .tag.door{background:#3a4a9c;color:var(--cream)}
+.slot .apply{margin-top:14px;font-family:'IBM Plex Mono';font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+
+/* ===== THE APPLICATION (order ticket, long-form) ===== */
+.appwrap{padding:clamp(56px,8vw,110px) clamp(20px,4vw,64px);background:var(--paper);position:relative;overflow:hidden}
+.appgrid{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(28px,5vw,80px);max-width:1280px;margin:0 auto}
+.panel{position:sticky;top:120px;align-self:start}
+.panel h2.mega{color:var(--ink)}
+.panel h2.mega em{color:var(--brick)}
+.panel p{max-width:42ch;color:#4a4640;margin-bottom:18px}
+.panel .hint{border:2px dashed rgba(26,26,26,.25);padding:16px 18px;font-family:'IBM Plex Mono';font-size:.78rem;letter-spacing:.06em;color:#4a4640;line-height:1.7}
+.panel .hint b{color:var(--brick)}
+.ticket{
+  background:#fffdf7;color:var(--ink);padding:clamp(22px,3vw,40px) clamp(18px,3vw,38px);
+  box-shadow:0 30px 60px -30px rgba(0,0,0,.35),0 0 0 1px rgba(26,26,26,.06);
+  transform:rotate(.4deg);position:relative;
+}
+.ticket .t-head{text-align:center;font-family:'IBM Plex Mono';text-transform:uppercase;border-bottom:1px dashed #b9b1a3;padding-bottom:14px;margin-bottom:6px}
+.ticket .t-head .t-title{font-weight:600;letter-spacing:.22em;font-size:1rem}
+.ticket .t-head .t-sub{font-size:.7rem;color:#7d766b;margin-top:4px;letter-spacing:.1em}
+.ticket .sec{font-family:'IBM Plex Mono';font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brick);border-bottom:1px dashed #b9b1a3;padding:26px 0 8px;display:flex;justify-content:space-between}
+.ticket .sec span:last-child{color:#7d766b}
+.ticket label{font-size:.7rem;letter-spacing:.14em;display:block;margin:14px 0 5px;color:#4a4640;text-transform:uppercase}
+.ticket label .req{color:var(--brick)}
+.ticket input,.ticket textarea,.ticket select{
+  width:100%;border:1px dashed #b9b1a3;background:#fffdf7;padding:11px 12px;
+  font-family:'IBM Plex Mono';font-size:.9rem;outline:none;color:var(--ink);resize:vertical;border-radius:0;-webkit-appearance:none;appearance:none;
+}
+.ticket select{background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px;background-repeat:no-repeat}
+.ticket input:focus,.ticket textarea:focus,.ticket select:focus{border-color:var(--brick);border-style:solid;box-shadow:0 0 0 3px rgba(255,183,61,.4)}
+.ticket input:user-invalid,.ticket select:user-invalid{border-color:var(--brick);border-style:solid}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.chips label{margin:0;cursor:pointer}
+.chips input{position:absolute;opacity:0;width:0;height:0}
+.chips span{display:inline-block;border:1px dashed #b9b1a3;padding:8px 12px;font-family:'IBM Plex Mono';font-size:.8rem;letter-spacing:.06em;text-transform:none;color:var(--ink);transition:all .15s;user-select:none}
+.chips input:checked+span{background:var(--ink);color:var(--cream);border-color:var(--ink);border-style:solid}
+.chips input:focus-visible+span{box-shadow:0 0 0 3px rgba(255,183,61,.5)}
+.check{display:flex;align-items:flex-start;gap:10px;margin-top:12px;font-size:.88rem;color:#2a2724;text-transform:none;letter-spacing:0;cursor:pointer}
+.check input{width:18px;height:18px;flex:none;margin-top:2px;accent-color:var(--brick);-webkit-appearance:auto;appearance:auto}
+.ticket button{
+  width:100%;margin-top:22px;padding:16px;border:none;cursor:pointer;
+  background:var(--ink);color:var(--cream);
+  font-family:'IBM Plex Mono';font-weight:600;letter-spacing:.18em;font-size:.88rem;
+  transition:transform .25s var(--ease-spring),box-shadow .25s;
+}
+.ticket button:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--gold)}
+.ticket button[disabled]{opacity:.5;pointer-events:none}
+.ticket .t-foot{text-align:center;font-size:.66rem;letter-spacing:.16em;color:#7d766b;margin-top:12px;text-transform:uppercase}
+.ticket .err{display:none;margin-top:14px;padding:12px 14px;border:2px solid var(--brick);color:var(--brick);font-family:'IBM Plex Mono';font-size:.8rem;letter-spacing:.04em;line-height:1.6}
+.ticket .err.show{display:block}
+.hp{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
+.stamp{
+  position:fixed;top:50%;left:50%;z-index:5;
+  border:4px solid var(--brick);color:var(--brick);
+  font-family:'IBM Plex Mono';font-weight:600;letter-spacing:.2em;font-size:1.1rem;
+  padding:18px 28px;text-transform:uppercase;text-align:center;line-height:1.7;
+  background:rgba(255,253,247,.94);box-shadow:0 30px 60px -20px rgba(0,0,0,.4);
+  transform:translate(-50%,-50%) rotate(-8deg) scale(3);opacity:0;pointer-events:none;
+}
+.stamp.hit{animation:stampin .45s var(--ease-cinematic) forwards}
+@keyframes stampin{from{transform:translate(-50%,-50%) rotate(-8deg) scale(3);opacity:0}60%{transform:translate(-50%,-50%) rotate(-8deg) scale(.96);opacity:1}to{transform:translate(-50%,-50%) rotate(-8deg) scale(1);opacity:1}}
+.ticket.done{opacity:.35;pointer-events:none;filter:grayscale(.4)}
+
+/* ===== PAPER OPTION ===== */
+.band{background:var(--gold);color:var(--ink);padding:clamp(40px,6vw,72px) clamp(20px,4vw,64px);display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.band h3{font-family:'Fraunces';font-size:clamp(1.6rem,3.4vw,2.8rem);line-height:1.05;text-transform:uppercase;letter-spacing:-.01em;font-variation-settings:'SOFT' 50,'WONK' 1;max-width:22ch}
+.band h3 em{font-style:italic;color:var(--red-field);text-transform:none}
+.btn-ink{background:var(--ink);color:var(--cream);text-decoration:none;font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;padding:17px 30px;display:inline-block;transition:transform .25s var(--ease-spring),box-shadow .25s}
+.btn-ink:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--red-field)}
+
+@media(max-width:900px){.appgrid{grid-template-columns:1fr}.panel{position:static}.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.nav-links{display:none}.hamburger{display:block}.foot-grid{grid-template-columns:1fr}.ticket{transform:none}.grid2{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}.chero .ghostword{animation:none}
+}
+</style>
+<link rel="stylesheet" href="fx.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="index.html" aria-label="Bodega Bar ATL home">
+    <img src="assets/BodegaBar_Logo.png" alt="Bodega Bar">
+  </a>
+  <ul class="nav-links">
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="index.html#on-the-wall">On the Wall</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a class="cta" href="#apply">Join the Crew</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">Menu ＋</button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <button class="close" id="navClose">Close ✕</button>
+  <a href="index.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="about.html">About</a>
+  <a href="index.html#on-the-wall">On the Wall</a>
+  <a href="contact.html">Contact</a>
+  <a href="#apply">Join the Crew</a>
+</div>
+
+<!-- HERO -->
+<header class="chero">
+  <div class="ghostword" aria-hidden="true">NOW HIRING · NOW HIRING · NOW HIRING · NOW HIRING · NOW HIRING · </div>
+  <span class="kicker">Sylvan Hills · Opening Crew</span>
+  <h1>Join <em>the crew.</em></h1>
+  <p>Neighborhood bar. NYC energy. Real hospitality. We hire for attitude and train for skill — if you're warm, quick, and take pride in the work, we want to meet you. Five minutes, no resume required.</p>
+</header>
+
+<!-- ROLES -->
+<section class="roles">
+  <div class="eyebrow rv">What's on the board</div>
+  <h2 class="mega rv">Open <em>positions</em></h2>
+  <div class="board">
+    <div class="slot rv" tabindex="0" data-role="Bartender"><span class="tag">Bar</span><div class="num">01</div><h3>Bartender</h3><p>Cocktail-forward, high volume, hospitality first. Must be 21+. Bar leads are set — we're building the bench.</p><div class="apply">Apply →</div></div>
+    <div class="slot rv" tabindex="0" data-role="Barback"><span class="tag">Bar</span><div class="num">02</div><h3>Barback</h3><p>Keep the well stocked, ice full, glass moving. The fastest path to a bartender shift in the building.</p><div class="apply">Apply →</div></div>
+    <div class="slot rv" tabindex="0" data-role="Server"><span class="tag">FOH</span><div class="num">03</div><h3>Server</h3><p>Read the table, know the menu, own the section. NYC pace with Southern warmth.</p><div class="apply">Apply →</div></div>
+    <div class="slot rv" tabindex="0" data-role="Host"><span class="tag">FOH</span><div class="num">04</div><h3>Host</h3><p>First face at the door. Waitlist, seating flow, and the vibe-check that sets the night.</p><div class="apply">Apply →</div></div>
+    <div class="slot rv" tabindex="0" data-role="Line Cook"><span class="tag boh">BOH</span><div class="num">05</div><h3>Line Cook</h3><p>Bodega classics done right — chopped cheese, bacon egg &amp; cheese, and a menu that moves fast.</p><div class="apply">Apply →</div></div>
+    <div class="slot rv" tabindex="0" data-role="Prep Cook"><span class="tag boh">BOH</span><div class="num">06</div><h3>Prep Cook</h3><p>Mise en place, par levels, clean station. The kitchen runs on you before doors open.</p><div class="apply">Apply →</div></div>
+    <div class="slot rv" tabindex="0" data-role="Dishwasher"><span class="tag boh">BOH</span><div class="num">07</div><h3>Dishwasher</h3><p>Nothing runs without a clean dish pit. Reliable, quick, and respected here — not an afterthought.</p><div class="apply">Apply →</div></div>
+    <div class="slot rv" tabindex="0" data-role="Security / Door"><span class="tag door">Door</span><div class="num">08</div><h3>Security / Door</h3><p>ID checks, capacity, de-escalation. Calm presence, neighborhood-friendly, never a bouncer cliché.</p><div class="apply">Apply →</div></div>
+    <div class="slot rv" tabindex="0" data-role="General Manager"><span class="tag">Mgmt</span><div class="num">09</div><h3>General Manager</h3><p>Run the floor, lead the crew, own the numbers. Hands-on through opening and beyond.</p><div class="apply">Apply →</div></div>
+  </div>
+</section>
+
+<!-- APPLICATION -->
+<section class="appwrap" id="apply">
+  <div class="appgrid">
+    <div class="panel">
+      <div class="eyebrow rv">The application</div>
+      <h2 class="mega rv">Put your <em>name in.</em></h2>
+      <p class="rv">Fill the ticket. We read every one, usually within a few days, and we'll reach out by text or email to set up a conversation.</p>
+      <div class="hint rv"><b>HEADS UP</b><br>No resume needed — a link helps but isn't required.<br>Bar roles need you to be 21+.<br>Sylvan Hills / Southwest ATL locals — say so. It matters to us.</div>
+    </div>
+
+    <form class="ticket rv" id="app" novalidate>
+      <div class="t-head">
+        <div class="t-title">CREW TICKET</div>
+        <div class="t-sub">BODEGA BAR ATL — APPLICATIONS · KEEP THIS COPY</div>
+      </div>
+
+      <div class="sec"><span>01 · Who you are</span><span>Required <b style="color:var(--brick)">*</b></span></div>
+      <label for="name">Full name <span class="req">*</span></label>
+      <input id="name" name="name" type="text" required autocomplete="name" placeholder="First and last">
+      <div class="grid2">
+        <div><label for="phone">Phone <span class="req">*</span></label><input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="(404) 555-0100"></div>
+        <div><label for="email">Email <span class="req">*</span></label><input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com"></div>
+      </div>
+      <div class="grid2">
+        <div><label for="zip">Neighborhood / ZIP</label><input id="zip" name="zip" type="text" placeholder="Sylvan Hills · 30310"></div>
+        <div><label for="instagram">Instagram (optional)</label><input id="instagram" name="instagram" type="text" placeholder="@yourhandle"></div>
+      </div>
+      <div class="chips" style="margin-top:14px">
+        <label><input type="checkbox" name="over18"><span>I'm 18 or older</span></label>
+        <label><input type="checkbox" name="over21"><span>I'm 21 or older</span></label>
+        <label><input type="checkbox" name="authorized"><span>Authorized to work in the U.S.</span></label>
+      </div>
+
+      <div class="sec"><span>02 · The job</span><span>Pick your lane</span></div>
+      <div class="grid2">
+        <div><label for="position">Position <span class="req">*</span></label>
+          <select id="position" name="position" required>
+            <option value="" disabled selected>Choose one…</option>
+            <option>Bartender</option><option>Barback</option><option>Server</option><option>Host</option>
+            <option>Line Cook</option><option>Prep Cook</option><option>Dishwasher</option>
+            <option>Security / Door</option><option>General Manager</option>
+          </select></div>
+        <div><label for="second">Second choice</label>
+          <select id="second" name="second">
+            <option value="">None</option>
+            <option>Open to anything</option><option>Bartender</option><option>Barback</option><option>Server</option><option>Host</option>
+            <option>Line Cook</option><option>Prep Cook</option><option>Dishwasher</option><option>Security / Door</option>
+          </select></div>
+      </div>
+      <div class="grid2">
+        <div><label for="hours">Desired hours</label>
+          <select id="hours" name="hours"><option value="">—</option><option>Full-time</option><option>Part-time</option><option>Either</option></select></div>
+        <div><label for="start">Earliest start date</label><input id="start" name="start" type="date"></div>
+      </div>
+      <label>Availability — tap everything that works</label>
+      <div class="chips" id="avail">
+        <label><input type="checkbox" value="Mon"><span>Mon</span></label>
+        <label><input type="checkbox" value="Tue"><span>Tue</span></label>
+        <label><input type="checkbox" value="Wed"><span>Wed</span></label>
+        <label><input type="checkbox" value="Thu"><span>Thu</span></label>
+        <label><input type="checkbox" value="Fri"><span>Fri</span></label>
+        <label><input type="checkbox" value="Sat"><span>Sat</span></label>
+        <label><input type="checkbox" value="Sun"><span>Sun</span></label>
+        <label><input type="checkbox" value="Days"><span>Days</span></label>
+        <label><input type="checkbox" value="Nights"><span>Nights</span></label>
+        <label><input type="checkbox" value="Late night (after 12am)"><span>Late night (after 12am)</span></label>
+      </div>
+
+      <div class="sec"><span>03 · Experience</span><span>Be honest, we train</span></div>
+      <label for="experience">Years in bars / restaurants / kitchens</label>
+      <select id="experience" name="experience"><option value="">—</option>
+        <option>None — willing to learn</option><option>Under 1 year</option><option>1–3 years</option><option>3–5 years</option><option>5+ years</option></select>
+      <label for="job1">Most recent job</label>
+      <input id="job1" name="job1" type="text" placeholder="Employer · role · dates">
+      <label for="job2">Previous job</label>
+      <input id="job2" name="job2" type="text" placeholder="Employer · role · dates">
+      <label>Certifications</label>
+      <div class="chips" id="certs">
+        <label><input type="checkbox" value="ServSafe Food Handler"><span>ServSafe Food Handler</span></label>
+        <label><input type="checkbox" value="ServSafe Manager"><span>ServSafe Manager</span></label>
+        <label><input type="checkbox" value="TIPS / Alcohol Server"><span>TIPS / Alcohol Server</span></label>
+        <label><input type="checkbox" value="CPR / First Aid"><span>CPR / First Aid</span></label>
+        <label><input type="checkbox" value="Security Guard License"><span>Security Guard License</span></label>
+        <label><input type="checkbox" value="None yet"><span>None yet</span></label>
+      </div>
+      <label for="resume">Resume link (optional)</label>
+      <input id="resume" name="resume" type="url" placeholder="Google Drive, Dropbox, LinkedIn…">
+
+      <div class="sec"><span>04 · About you</span><span>The part we actually read</span></div>
+      <label for="why">Why Bodega Bar? What would you bring to the crew?</label>
+      <textarea id="why" name="why" rows="4" placeholder="Talk to us like we're at the counter…"></textarea>
+      <label for="funfact">Fun fact — something we wouldn't get from a resume</label>
+      <textarea id="funfact" name="funfact" rows="2" placeholder="…"></textarea>
+      <div class="grid2">
+        <div><label for="referred">Referred by</label><input id="referred" name="referred" type="text" placeholder="Who sent you?"></div>
+        <div><label for="ref1">Reference</label><input id="ref1" name="ref1" type="text" placeholder="Name · relationship · phone"></div>
+      </div>
+      <label for="ref2">Second reference (optional)</label>
+      <input id="ref2" name="ref2" type="text" placeholder="Name · relationship · phone">
+
+      <div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+
+      <label class="check"><input type="checkbox" id="consent" name="consent" required>
+        <span>I certify this information is true and complete. I authorize Bodega Bar ATL to contact the references and employers listed and, if a conditional offer is made, to run a background check as permitted by law. I understand this is not a contract of employment and that employment, if offered, is at-will. <span class="req">*</span></span></label>
+
+      <button type="submit" id="submitBtn">SEND IT UP →</button>
+      <div class="err" id="err"></div>
+      <div class="t-foot">Equal opportunity employer · We reply to every ticket</div>
+    </form>
+  </div>
+  <div class="stamp" id="stamp">RECEIVED ✔<br>WE'LL HOLLER BACK</div>
+</section>
+
+<!-- PAPER -->
+<section class="band">
+  <h3>Prefer <em>paper?</em> Print it, fill it, drop it at the door.</h3>
+  <a class="btn-ink" href="assets/Bodega_Bar_Job_Application.pdf" download>Download the PDF</a>
+</section>
+
+<footer id="visit">
+  <div class="foot-grid">
+    <div>
+      <p class="foot-logo">Street outside, gallery light inside.
+        <span class="sub">Bodega Bar ATL — Sylvan Hills</span>
+      </p>
+    </div>
+    <div>
+      <h4>Visit</h4>
+      <a href="https://maps.google.com/?q=1085+Katherwood+Dr+SW+Atlanta+GA+30310" target="_blank" rel="noopener">1085 Katherwood Dr SW<br>Atlanta, GA 30310</a>
+      <a href="tel:+14702468872">(470) 246-8872</a>
+      <a href="mailto:info@bodegabaratl.com">info@bodegabaratl.com</a>
+    </div>
+    <div>
+      <h4>Follow</h4>
+      <a href="https://instagram.com/bodegabaratl" target="_blank" rel="noopener">Instagram — @bodegabaratl</a>
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="careers.html">Join the Crew</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 BODEGA BAR ATL</span>
+    <span>OPEN LATE · SOON</span>
+  </div>
+</footer>
+
+<script>
+const motionOK=!matchMedia('(prefers-reduced-motion: reduce)').matches;
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>60)},{passive:true});
+const mnav=document.getElementById('mobileNav');
+document.getElementById('hamburger').addEventListener('click',()=>mnav.classList.add('open'));
+document.getElementById('navClose').addEventListener('click',()=>mnav.classList.remove('open'));
+mnav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mnav.classList.remove('open')));
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// role card → preselect + scroll
+const posSel=document.getElementById('position');
+document.querySelectorAll('.slot').forEach(s=>{
+  const go=()=>{posSel.value=s.dataset.role;document.getElementById('apply').scrollIntoView({behavior:motionOK?'smooth':'auto'});setTimeout(()=>document.getElementById('name').focus({preventScroll:true}),600)};
+  s.addEventListener('click',go);
+  s.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}});
+});
+// deep link ?role=Server
+const qp=new URLSearchParams(location.search).get('role');
+if(qp){posSel.value=qp}
+
+// submit → /api/apply → Airtable
+const form=document.getElementById('app'),btn=document.getElementById('submitBtn'),err=document.getElementById('err'),stamp=document.getElementById('stamp');
+const vals=id=>[...document.querySelectorAll('#'+id+' input:checked')].map(i=>i.value);
+form.addEventListener('submit',async e=>{
+  e.preventDefault();err.classList.remove('show');
+  if(!form.reportValidity())return;
+  const f=form.elements;
+  const payload={
+    name:f.name.value,phone:f.phone.value,email:f.email.value,zip:f.zip.value,instagram:f.instagram.value,
+    over18:f.over18.checked,over21:f.over21.checked,authorized:f.authorized.checked,
+    position:f.position.value,second:f.second.value,hours:f.hours.value,start:f.start.value,
+    availability:vals('avail'),experience:f.experience.value,job1:f.job1.value,job2:f.job2.value,
+    certs:vals('certs'),resume:f.resume.value,why:f.why.value,funfact:f.funfact.value,
+    referred:f.referred.value,ref1:f.ref1.value,ref2:f.ref2.value,consent:f.consent.checked,website:f.website.value
+  };
+  btn.disabled=true;btn.textContent='SENDING…';
+  try{
+    const r=await fetch('/api/apply',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    const j=await r.json().catch(()=>({}));
+    if(!r.ok||!j.ok)throw new Error(j.error||'Failed');
+    form.classList.add('done');stamp.classList.add('hit');
+    setTimeout(()=>{stamp.classList.remove('hit')},4200);
+  }catch(x){
+    btn.disabled=false;btn.textContent='SEND IT UP →';
+    err.innerHTML='Something jammed on our end. Try again, or email your info to <a href="mailto:info@bodegabaratl.com?subject=Job%20application%20—%20'+encodeURIComponent(payload.position||'')+'">info@bodegabaratl.com</a>.';
+    err.classList.add('show');
+  }
+});
+</script>
+<script src="fx.js" defer></script>
+<script src="i18n.js" defer></script>
+</body>
+</html>
